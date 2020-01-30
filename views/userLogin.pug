@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+
+    .login-wrappper
+        .inner 
+            form(action="/login", method="POST")
+                h1 LashBase
+                input.login__input(type="text" placeholder="username" name="email")
+                input.login__input(type="password" placeholder="password" name='password')
+                button.login_btn(type="submit") Login 
+            a(href="/registerForm")
+                button.login_btn Register

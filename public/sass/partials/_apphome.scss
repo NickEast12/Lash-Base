@@ -1,0 +1,63 @@
+.app__wrapper {
+  width: 100%;
+  .app__header {
+    width: 100%;
+    background: whitesmoke;
+    text-align: center;
+    .header__wrapper {
+      padding: 1rem 0 0.5rem 0;
+      position: relative;
+      h1 {
+        font-weight: 500;
+      }
+      .setting__icon_wrapper {
+        position: absolute;
+        top: calc(0% + 24px);
+        right: calc(0% + 30px);
+        img {
+          width: 24px;
+        }
+      }
+    }
+    .header__search {
+      width: 85%;
+      margin: 0 auto;
+      padding-bottom: 0.85rem;
+      input {
+        background: white;
+        z-index: 2;
+        height: 3rem;
+        width: 100%;
+        border-radius: 5px;
+        padding-left: 10px;
+        font-size: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: -6px -6px 26px 0 rgba(255, 255, 255, 1),
+          6px 6px 16px 0 rgba(217, 210, 200, 0.51);
+      }
+    }
+  }
+  .app__navigation {
+    width: 100%;
+    position: absolute;
+    padding: 0.95rem 0.15rem 0.55rem 0.15rem;
+    background: whitesmoke;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .app__nav__inner {
+      text-align: center;
+      .app__nav__img__wrp {
+        img {
+          width: 20px;
+          margin: 0 auto;
+        }
+      }
+      h3 {
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 200;
+      }
+    }
+  }
+}

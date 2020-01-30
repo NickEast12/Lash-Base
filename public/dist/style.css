@@ -1,0 +1,229 @@
+.login-wrappper {
+  height: 100vh;
+  width: 100%;
+  background: whitesmoke; }
+  .login-wrappper .inner {
+    width: 75%;
+    margin: 0 auto;
+    padding: 4rem 0; }
+    .login-wrappper .inner .login__input {
+      display: block;
+      width: 100%;
+      margin: 1rem 0;
+      padding: .55rem;
+      border-radius: 5px;
+      background: white;
+      font-size: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+    .login-wrappper .inner .login_btn {
+      width: 100%;
+      padding: .85rem .35em .55rem .35em;
+      font-size: .85rem;
+      margin: .45rem 0;
+      text-transform: uppercase;
+      border-radius: 5px;
+      background: lightpink;
+      color: whitesmoke;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+    .login-wrappper .inner .alt__loginButton {
+      background: whitesmoke;
+      color: lightpink; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  font-weight: 100; }
+
+a,
+a:visited,
+a:active {
+  color: inherit;
+  text-decoration: none; }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-10px); }
+  50% {
+    transform: translateX(10px); }
+  100% {
+    transform: translateX(0px); } }
+
+.flash-messages {
+  position: absolute;
+  width: 85%;
+  top: calc(0% + 10px);
+  left: calc(0% + 25px);
+  z-index: 10; }
+
+.flash {
+  background: whitesmoke;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  width: 100%;
+  position: block;
+  z-index: 10;
+  border-radius: 3px;
+  display: -ms-flexbox;
+  display: flex;
+  animation: slideIn forwards .1s ease-in-out 2;
+  animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1); }
+  .flash + .flash {
+    animation-delay: 0.55s; }
+    .flash + .flash + .flash {
+      animation-delay: 0.6s; }
+  .flash__text {
+    -ms-flex: 1;
+        flex: 1; }
+  .flash__remove {
+    background: none;
+    border: 0;
+    font-size: 20px; }
+    .flash__remove:hover {
+      color: yellowgreen; }
+  .flash:after {
+    content: '';
+    display: block;
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 3px; }
+  .flash--success {
+    border: solid green 1px; }
+  .flash--error {
+    border: solid red 4px; }
+  .flash--info {
+    border: solid orange 4px; }
+  .flash p {
+    margin: 0; }
+
+.app__wrapper {
+  width: 100%; }
+  .app__wrapper .app__header {
+    width: 100%;
+    background: whitesmoke;
+    text-align: center; }
+    .app__wrapper .app__header .header__wrapper {
+      padding: 1rem 0 0.5rem 0;
+      position: relative; }
+      .app__wrapper .app__header .header__wrapper h1 {
+        font-weight: 500; }
+      .app__wrapper .app__header .header__wrapper .setting__icon_wrapper {
+        position: absolute;
+        top: calc(0% + 24px);
+        right: calc(0% + 30px); }
+        .app__wrapper .app__header .header__wrapper .setting__icon_wrapper img {
+          width: 24px; }
+    .app__wrapper .app__header .header__search {
+      width: 85%;
+      margin: 0 auto;
+      padding-bottom: 0.85rem; }
+      .app__wrapper .app__header .header__search input {
+        background: white;
+        z-index: 2;
+        height: 3rem;
+        width: 100%;
+        border-radius: 5px;
+        padding-left: 10px;
+        font-size: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+  .app__wrapper .app__navigation {
+    width: 100%;
+    position: absolute;
+    padding: 0.95rem 0.15rem 0.55rem 0.15rem;
+    background: whitesmoke;
+    bottom: 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; }
+    .app__wrapper .app__navigation .app__nav__inner {
+      text-align: center; }
+      .app__wrapper .app__navigation .app__nav__inner .app__nav__img__wrp img {
+        width: 20px;
+        margin: 0 auto; }
+      .app__wrapper .app__navigation .app__nav__inner h3 {
+        text-align: center;
+        font-size: 0.75rem;
+        font-weight: 200; }
+
+.homepage__main__wrapper {
+  background-image: url(/images/salon.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  padding-top: 8rem; }
+  .homepage__main__wrapper::after {
+    content: "";
+    background: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    opacity: .7; }
+  .homepage__main__wrapper .home__inner {
+    position: relative;
+    width: 65%;
+    margin: 0 auto;
+    padding: 1.85rem;
+    z-index: 7;
+    background: white;
+    border: lightpink 5px solid; }
+    .homepage__main__wrapper .home__inner .main__title {
+      font-weight: 700;
+      text-align: center; }
+    .homepage__main__wrapper .home__inner p {
+      text-align: center;
+      margin: .45rem 0; }
+    .homepage__main__wrapper .home__inner .home__input__wrapper {
+      width: 75%;
+      margin: 1rem auto; }
+      .homepage__main__wrapper .home__inner .home__input__wrapper .home__input {
+        width: 100%;
+        padding: .85rem .35em .55rem .35em;
+        font-size: 1rem;
+        margin: .45rem 0;
+        border-radius: 5px;
+        background: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+    .homepage__main__wrapper .home__inner .home__button__wrapper {
+      width: 75%;
+      margin: 0 auto;
+      text-align: center; }
+      .homepage__main__wrapper .home__inner .home__button__wrapper input {
+        width: 100%;
+        padding: .85rem .35em;
+        font-size: .85rem;
+        margin: .45rem 0;
+        text-transform: uppercase;
+        border-radius: 5px;
+        font-weight: 600;
+        background: lightpink;
+        color: whitesmoke;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+  .homepage__main__wrapper .home__lower__wrapper {
+    width: 75%;
+    margin: .75rem auto 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    color: white;
+    font-size: .8rem; }
+    .homepage__main__wrapper .home__lower__wrapper .register__link {
+      color: lightpink;
+      font-weight: 900; }
+
+/*# sourceMappingURL=style.css.map*/

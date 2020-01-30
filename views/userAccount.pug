@@ -1,0 +1,21 @@
+extends layout 
+
+block content 
+
+    .app__wrapper
+        .app__header
+            .header__wrapper
+                h1= title
+                .setting__icon_wrapper
+                    a(href="/app/explore")
+                        img.setting__icon(src="/images/icons/house.svg", alt="searching")
+            .login-wrappper
+                .inner 
+                    form(action="/userUpdate", method="POST")
+                        input.login__input(type="text" placeholder="Name" name="name" value=user.name)
+                        input.login__input(type="email" placeholder="Email" name="email" value=user.email)
+                        button.login_btn(type="submit" value="Update") Update
+                    a(href="/logout")
+                        input.login_btn.alt__loginButton(type="button", value="logout")
+                
+    

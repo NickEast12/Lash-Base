@@ -1,0 +1,30 @@
+extends layout 
+
+block content
+
+
+    .app__wrapper
+        .app__header
+            .header__wrapper
+                h1= title
+                .setting__icon_wrapper
+                    a(href="/user/account")
+                        img.setting__icon(src="/images/icons/settings.svg", alt="searching")
+        .app__body
+            block appContent
+        .app__navigation
+            .app__nav__inner
+                a(href="/app/explore")
+                    .app__nav__img__wrp
+                        img(src="/images/icons/magnifying-glass.svg", alt="searching")
+                    h3 Explore
+            .app__nav__inner
+                a(href="/app/favourites")
+                    .app__nav__img__wrp
+                        img(src="/images/icons/heart.svg", alt="searching")
+                    h3 My Favourites
+            .app__nav__inner
+                a(href="/app/bookings")    
+                    .app__nav__img__wrp
+                        img(src="/images/icons/shopping-bag.svg", alt="searching")
+                    h3 My Bookings
