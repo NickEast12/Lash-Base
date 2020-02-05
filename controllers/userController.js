@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model('User');
+const Store = mongoose.model('Store');
 const promisify = require("es6-promisify");
 const multer = require("multer");
 const jimp = require("jimp");
@@ -43,15 +44,11 @@ exports.register = async (req, res, next) => {
     next(); //! pass off to auth 
 };
 
-exports.success = (req, res) => {
-    res.render('success');
-}
-
-exports.appHome = (req, res) => {
-    res.render('appHome');
-}
-exports.explore = (req, res) => {
-    res.render('appHome', { title: 'Explore' })
+exports.explore = async (req, res) => {
+    //? so we need to query the database and get the stores 
+    const stores = await Store.find();
+    // res.json(stores);
+    res.render('appHome', { title: 'Explore', stores: stores });
 };
 exports.favourites = (req, res) => {
     res.render('favourites', { title: 'Favourites' })

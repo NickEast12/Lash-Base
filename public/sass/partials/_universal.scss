@@ -13,3 +13,17 @@ a:active {
   color: inherit;
   text-decoration: none;
 }
+
+.button__wrapper {
+  width: 100%;
+  padding:  .85rem .35em .55rem .35em;
+  font-size: 1rem;
+  margin: .45rem 0;
+  border-radius: 5px;
+  background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+  color: whitesmoke;
+  border: none;
+  box-shadow:  
+  -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
+  6px 6px 16px 0 rgba(217, 210, 200, 0.51)
+}

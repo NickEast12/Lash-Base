@@ -19,6 +19,9 @@ const userSchema = new Schema({
         type: String,
         require: 'Please supply a name',
         trim: true
+    },
+    storeOwner: {
+        type: Boolean,
     }
 });
 userSchema.plugin(passportLocalMongoose, {

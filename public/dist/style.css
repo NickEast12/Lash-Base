@@ -1,35 +1,41 @@
-.login-wrappper {
-  height: 100vh;
+.login__input {
+  position: relative;
+  z-index: 4;
+  display: block;
   width: 100%;
-  background: whitesmoke; }
-  .login-wrappper .inner {
-    width: 75%;
-    margin: 0 auto;
-    padding: 4rem 0; }
-    .login-wrappper .inner .login__input {
-      display: block;
-      width: 100%;
-      margin: 1rem 0;
-      padding: .55rem;
-      border-radius: 5px;
-      background: white;
-      font-size: 1.1rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
-    .login-wrappper .inner .login_btn {
-      width: 100%;
-      padding: .85rem .35em .55rem .35em;
-      font-size: .85rem;
-      margin: .45rem 0;
-      text-transform: uppercase;
-      border-radius: 5px;
-      background: lightpink;
-      color: whitesmoke;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
-    .login-wrappper .inner .alt__loginButton {
-      background: whitesmoke;
-      color: lightpink; }
+  margin: 1.25rem 0;
+  padding: .55rem;
+  border-radius: 5px;
+  background: white;
+  font-size: 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+
+.login_btn {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  padding: .85rem .35em .55rem .35em;
+  font-size: 1rem;
+  margin: .45rem 0;
+  border-radius: 5px;
+  background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+  color: whitesmoke;
+  border: none;
+  box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+
+.alt__loginButton {
+  background: whitesmoke;
+  color: lightpink; }
+
+.back__wrapper {
+  width: 55%;
+  margin: 2.5rem auto;
+  position: relative;
+  z-index: 4;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #f39fdc; }
 
 * {
   margin: 0;
@@ -43,6 +49,17 @@ a:visited,
 a:active {
   color: inherit;
   text-decoration: none; }
+
+.button__wrapper {
+  width: 100%;
+  padding: .85rem .35em .55rem .35em;
+  font-size: 1rem;
+  margin: .45rem 0;
+  border-radius: 5px;
+  background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+  color: whitesmoke;
+  border: none;
+  box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
 
 @keyframes slideIn {
   0% {
@@ -106,11 +123,14 @@ a:active {
     margin: 0; }
 
 .app__wrapper {
-  width: 100%; }
+  width: 100%;
+  height: 100vh; }
   .app__wrapper .app__header {
     width: 100%;
     background: whitesmoke;
-    text-align: center; }
+    text-align: center;
+    position: fixed;
+    top: 0; }
     .app__wrapper .app__header .header__wrapper {
       padding: 1rem 0 0.5rem 0;
       position: relative; }
@@ -138,7 +158,7 @@ a:active {
         box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
   .app__wrapper .app__navigation {
     width: 100%;
-    position: absolute;
+    position: fixed;
     padding: 0.95rem 0.15rem 0.55rem 0.15rem;
     background: whitesmoke;
     bottom: 0;
@@ -161,7 +181,7 @@ a:active {
   background-size: cover;
   width: 100%;
   height: 100vh;
-  padding-top: 8rem; }
+  padding-top: 5rem; }
   .homepage__main__wrapper::after {
     content: "";
     background: black;
@@ -170,25 +190,49 @@ a:active {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 6;
+    z-index: 1;
     opacity: .7; }
   .homepage__main__wrapper .home__inner {
     position: relative;
     width: 65%;
     margin: 0 auto;
     padding: 1.85rem;
-    z-index: 7;
-    background: white;
-    border: lightpink 5px solid; }
+    z-index: 3;
+    background: white; }
+    .homepage__main__wrapper .home__inner::before {
+      content: '';
+      width: calc(100% + 1rem);
+      height: calc(100% + 1rem);
+      position: absolute;
+      background-color: #9ab5e1;
+      background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+      top: calc(0% - 8px);
+      left: calc(0% - 8px);
+      z-index: -2; }
+    .homepage__main__wrapper .home__inner::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: white;
+      top: 0;
+      left: 0;
+      z-index: 1; }
     .homepage__main__wrapper .home__inner .main__title {
       font-weight: 700;
-      text-align: center; }
+      text-align: center;
+      position: relative;
+      z-index: 4; }
     .homepage__main__wrapper .home__inner p {
       text-align: center;
-      margin: .45rem 0; }
+      margin: .45rem 0;
+      position: relative;
+      z-index: 4; }
     .homepage__main__wrapper .home__inner .home__input__wrapper {
       width: 75%;
-      margin: 1rem auto; }
+      margin: 1rem auto;
+      position: relative;
+      z-index: 4; }
       .homepage__main__wrapper .home__inner .home__input__wrapper .home__input {
         width: 100%;
         padding: .85rem .35em .55rem .35em;
@@ -201,7 +245,9 @@ a:active {
     .homepage__main__wrapper .home__inner .home__button__wrapper {
       width: 75%;
       margin: 0 auto;
-      text-align: center; }
+      text-align: center;
+      position: relative;
+      z-index: 4; }
       .homepage__main__wrapper .home__inner .home__button__wrapper input {
         width: 100%;
         padding: .85rem .35em;
@@ -210,20 +256,99 @@ a:active {
         text-transform: uppercase;
         border-radius: 5px;
         font-weight: 600;
-        background: lightpink;
+        cursor: pointer;
+        background: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
         color: whitesmoke;
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
   .homepage__main__wrapper .home__lower__wrapper {
     width: 75%;
-    margin: .75rem auto 0 auto;
+    margin: 1.25rem auto 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    color: white;
+    font-size: .8rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr; }
+    .homepage__main__wrapper .home__lower__wrapper .home__lower__grid .register__link {
+      color: #f39fdc;
+      font-weight: 900; }
+  .homepage__main__wrapper .seller__lower {
+    width: 75%;
+    margin: 1.25rem auto 0 auto;
     text-align: center;
     position: relative;
     z-index: 10;
     color: white;
     font-size: .8rem; }
-    .homepage__main__wrapper .home__lower__wrapper .register__link {
-      color: lightpink;
+    .homepage__main__wrapper .seller__lower .seller__link {
+      color: #f39fdc;
       font-weight: 900; }
+
+.update__account__wrapper {
+  background-color: whitesmoke;
+  height: calc(100vh - 4.25em);
+  position: relative; }
+  .update__account__wrapper .update__account__inner {
+    width: 75%;
+    margin: 0 auto;
+    padding: 4rem 0; }
+  .update__account__wrapper .become__wrapper {
+    position: absolute;
+    bottom: calc(0% + 1.75rem);
+    width: 75%;
+    margin: 0 auto; }
+    .update__account__wrapper .become__wrapper h4 {
+      font-weight: 500;
+      background: white;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51);
+      margin-bottom: 1.25rem; }
+
+.create__store__wrapper {
+  width: 75%;
+  margin: 1rem auto; }
+  .create__store__wrapper form label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: .25rem 0; }
+  .create__store__wrapper form .input__style {
+    margin: .25rem 0;
+    padding: .55rem;
+    border-radius: 5px;
+    background: white;
+    font-size: .9rem;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+  .create__store__wrapper form textarea {
+    width: 100%;
+    border-radius: 5px;
+    margin: .25rem 0;
+    padding: .55rem;
+    background: white;
+    font-size: .9rem;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+  .create__store__wrapper form .create__button {
+    margin-top: 3rem; }
+
+.store__inner_card {
+  background: red;
+  width: 85%;
+  margin: .45rem auto;
+  padding: 1rem; }
+
+.store__inner_card:last-child {
+  margin-bottom: 5rem;
+  background: blueviolet; }
 
 /*# sourceMappingURL=style.css.map*/

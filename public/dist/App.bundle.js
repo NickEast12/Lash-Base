@@ -73,8 +73,6 @@
 "use strict";
 
 
-var a = 1;
-
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {

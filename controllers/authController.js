@@ -2,6 +2,7 @@ const crypto = require("crypto");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+const Store = mongoose.model('Store');
 const promisify = require("es6-promisify");
 const multer = require("multer");
 const jimp = require("jimp");
@@ -31,8 +32,9 @@ exports.isLoggedIn = (req, res, next) => {
   res.redirect("/login");
 };
 
-exports.userAccount = (req, res, next) => {
-  res.render("userAccount", { title: "Update Account" });
+exports.userAccount = async (req, res, next) => {
+  const stores = await Store.find();
+  res.render("userAccount", { title: "Update Account", stores });
 };
 
 exports.userUpdate = async (req, res) => {

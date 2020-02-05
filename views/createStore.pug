@@ -1,0 +1,27 @@
+extends layout 
+
+block content
+
+    .app__wrapper
+        .app__header
+            .header__wrapper
+                h1= title
+                .setting__icon_wrapper
+                    a(href="/app/explore")
+                        img.setting__icon(src="/images/icons/house.svg", alt="searching")
+            .update__account__wrapper
+                    .create__store__wrapper
+                        form(action="/createListing", method="POST")
+                            label(for="name") Company name
+                            input.input__style(type="text", name="name")
+                            label(for="name")  Description
+                            textarea(name="description")
+                            //- label(for="name") Price Range
+                            //- input.input__style(type="text", name="priceRange")
+                            label(for="address") Address
+                            input.input__style(type="text", name="location[address]")
+                            label(for="address") Lng
+                            input.input__style(type="text", name="location[coordinates][0]" required )
+                            label(for="address") Lat
+                            input.input__style(type="text", name="location[coordinates][1]" required)
+                            input.button__wrapper.create__button(type="submit", value="Create a listing")

@@ -1,0 +1,28 @@
+extends layout 
+
+block content
+
+    .app__wrapper
+        .app__header
+            .header__wrapper
+                h1= title
+                h2= store
+                .setting__icon_wrapper
+                    a(href="/app/explore")
+                        img.setting__icon(src="/images/icons/house.svg", alt="searching")
+            .update__account__wrapper
+                    .create__store__wrapper
+                        form(action="/updateStore", method="post")
+                            label(for="name") Company name
+                            input.input__style(type="text", name="name" value= store.name)
+                            label(for="description")  Description
+                            textarea(name="description")=store.description
+                            //- label(for="name") Price Range
+                            //- input.input__style(type="text", name="priceRange")
+                            label(for="address") Address
+                            input.input__style(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
+                            label(for="lng") Address Lng
+                            input.input__style(type="text" id="lng" name="location[coordinates][0]" value=(store.location && store.location.coordinates[0]) required)
+                            label(for="lat") Address Lat
+                            input.input__style(type="text" id="lat" name="location[coordinates][1]" value=(store.location && store.location.coordinates[1]) required)
+                            input.button__wrapper.create__button(type="submit", value="Update Listing")

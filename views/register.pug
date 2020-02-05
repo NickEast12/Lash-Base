@@ -1,16 +1,17 @@
 extends layout 
 
-block content 
-   
-    .login-wrappper
-        .inner 
-            form(action="/register", method="POST")
-                h1= title
-                input.login__input(type="text" placeholder="Name" name="name")
-                input.login__input(type="email" placeholder="Email" name="email")
-                input.login__input(type="password" placeholder="Password" name="password")
-                input.login__input(type="password" placeholder="Confirm password" name="password-confirm")
-                button.login_btn(type="submit" value="Register") Register
-                //- input(type="submit", value="Register")
-        
-                    
+block content
+
+    .homepage__main__wrapper 
+        .home__inner
+            .home__title
+                h1.main__title= title
+                form(action="/register", method="POST")
+                    input.login__input(type="text" placeholder="Name" name="name")
+                    input.login__input(type="email" placeholder="Email" name="email")
+                    input.login__input(type="password" placeholder="Password" name="password")
+                    input.login__input(type="password" placeholder="Confirm password" name="password-confirm")
+                    button.login_btn(type="submit" value="Register") Register
+        .back__wrapper
+            a(href="/back")
+                h4 Back

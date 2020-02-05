@@ -13,8 +13,14 @@ exports.userLogin = (req, res) => {
     res.render('userLogin', { title: 'userLogin' });
 };
 
-//! 404 Error handeling
-exports.error = (req, res) => {
-    res.status(404).render('404');
+exports.sellerLogin = (req, res) => {
+    res.render('sellerLogin', { title: 'Welcome Back' });
 };
+
+exports.back = (req, res) => {
+    res.redirect('/');
+}
+
+//! 404 Error handeling
+
 

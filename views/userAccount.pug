@@ -9,13 +9,28 @@ block content
                 .setting__icon_wrapper
                     a(href="/app/explore")
                         img.setting__icon(src="/images/icons/house.svg", alt="searching")
-            .login-wrappper
-                .inner 
+            .update__account__wrapper
+                .update__account__inner
                     form(action="/userUpdate", method="POST")
                         input.login__input(type="text" placeholder="Name" name="name" value=user.name)
                         input.login__input(type="email" placeholder="Email" name="email" value=user.email)
                         button.login_btn(type="submit" value="Update") Update
                     a(href="/logout")
-                        input.login_btn.alt__loginButton(type="button", value="logout")
-                
-    
+                        input.login_btn.alt__loginButton(type="button", value="logout")   
+                    .become__wrapper
+                        -let isOwner = false;
+                        each store in stores
+                            if  user && store.author.equals(user._id)
+                                - isOwner = true;
+                                h4.edit__store Edit your listing
+                                a(href=`/app/${store._id}/edit`)
+                                    input.button__wrapper(type="button", value="Edit")
+                                
+                        if !isOwner
+                            h4 Want to start earning money on lashbase?
+                                        a(href="/app/seller/create")
+                                            input.button__wrapper(type="button", value="Become a seller today")
+                                    
+
+                                
+                        

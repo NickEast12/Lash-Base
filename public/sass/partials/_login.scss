@@ -1,41 +1,45 @@
-.login-wrappper {
-    height: 100vh;
+.login__input {
+    position: relative;
+    z-index: 4;
+    display: block;
     width: 100%;
-    background: whitesmoke;
-    .inner {
-        width: 75%;
-        margin: 0 auto;
-        padding: 4rem 0;
-        .login__input {
-            display: block;
-            width: 100%;
-            margin: 1rem 0;
-            padding: .55rem;
-            border-radius: 5px;
-            background: white;
-            font-size: 1.1rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow:  
-            -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
-            6px 6px 16px 0 rgba(217, 210, 200, 0.51)
-        }
-        .login_btn {
+    margin: 1.25rem 0;
+    padding: .55rem;
+    border-radius: 5px;
+    background: white;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow:  
+        -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
+        6px 6px 16px 0 rgba(217, 210, 200, 0.51)
+    }
+    .login_btn {
+            position: relative;
+            z-index: 4;
             width: 100%;
             padding:  .85rem .35em .55rem .35em;
-            font-size: .85rem;
+            font-size: 1rem;
             margin: .45rem 0;
-            text-transform: uppercase;
             border-radius: 5px;
-            background: lightpink;
+            background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
             color: whitesmoke;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: none;
             box-shadow:  
             -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
             6px 6px 16px 0 rgba(217, 210, 200, 0.51)
-        }
-        .alt__loginButton  {
-            background: whitesmoke;
-            color: lightpink;
-        }
     }
+    .alt__loginButton  {
+        background: whitesmoke;
+        color: lightpink;
+    }
+
+.back__wrapper {
+    width: 55%;
+    margin: 2.5rem auto;
+    position: relative;
+    z-index: 4;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #f39fdc;
 }
+    

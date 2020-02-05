@@ -1,0 +1,10 @@
+.store__inner_card {
+    background: red;
+    width: 85%;
+    margin:  .45rem auto;
+    padding: 1rem;
+}
+.store__inner_card:last-child {
+    margin-bottom: 5rem;
+    background: blueviolet;
+  }

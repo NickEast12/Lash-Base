@@ -4,6 +4,7 @@ const router = express.Router();
 const mainController = require("../controllers/mainController");
 const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
+const sellerController = require("../controllers/sellerController");
 //? error handeling import
 const { catchErrors } = require("../handlers/errorHandlers");
 
@@ -11,12 +12,12 @@ const { catchErrors } = require("../handlers/errorHandlers");
 //? Redirecting for homepage and first show
 router.get("/", mainController.homepage);
 router.get('/homepage', mainController.homepage)
+//! back routing
+router.get('/back', mainController.back);
 //? Routing for the register form
-router.get("/registerForm", userController.registerForm);
+router.get("/register", userController.registerForm);
 //! Actually loggin the user in
 router.get("/login", authController.login);
-//? Routing to get to the user login
-router.get('/userLogin', mainController.userLogin);
 //? Registering the user
 router.post(
   "/register",
@@ -30,12 +31,11 @@ router.post(
 //? POST request to login
 router.post("/login", authController.login);
 //? IF login is successful then it will send you to the app homepage 
-router.get("/success", userController.success);
 //? Log the user out
 router.get("/logout", authController.logout);
 //? APP - Getting around the app
-router.get("/app/home", userController.appHome);
-router.get("/app/explore", userController.explore);
+router.get("/app/home", catchErrors(userController.explore));
+router.get("/app/explore", catchErrors(userController.explore));
 router.get("/app/favourites", userController.favourites);
 router.get("/app/bookings", userController.bookings);
 //? route to getting account need to be loggin in
@@ -47,4 +47,19 @@ router.get(
 //? route to updating account need to be loggin in
 router.post("/userUpdate", catchErrors(authController.userUpdate));
 
+
+//! Seller Routing 
+
+router.get('/app/seller/create',
+  authController.isLoggedIn,
+  sellerController.createStore
+);
+//?  POST to create the new store
+router.post('/createListing', catchErrors(sellerController.createListing));
+//? Get request to list the owners store
+router.get('/app/:id/edit', sellerController.editStore);
+//? POST request to update stote 
+router.post('/updateStore', catchErrors(sellerController.updateStore));
 module.exports = router;
+
+
