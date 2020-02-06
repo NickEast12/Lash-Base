@@ -11,7 +11,7 @@ block content
                         img.setting__icon(src="/images/icons/house.svg", alt="searching")
             .update__account__wrapper
                 .update__account__inner
-                    form(action="/userUpdate", method="POST")
+                    form(action="/userUpdate" method="POST")
                         input.login__input(type="text" placeholder="Name" name="name" value=user.name)
                         input.login__input(type="email" placeholder="Email" name="email" value=user.email)
                         button.login_btn(type="submit" value="Update") Update

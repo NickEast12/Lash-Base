@@ -12,7 +12,7 @@ block content
                         img.setting__icon(src="/images/icons/house.svg", alt="searching")
             .update__account__wrapper
                     .create__store__wrapper
-                        form(action="/updateStore", method="post")
+                        form(action=`/app/${store._id || ''}/edit` method="post")
                             label(for="name") Company name
                             input.input__style(type="text", name="name" value= store.name)
                             label(for="description")  Description

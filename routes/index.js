@@ -59,7 +59,9 @@ router.post('/createListing', catchErrors(sellerController.createListing));
 //? Get request to list the owners store
 router.get('/app/:id/edit', sellerController.editStore);
 //? POST request to update stote 
-router.post('/updateStore', catchErrors(sellerController.updateStore));
+router.post('/app/:id/edit', catchErrors(sellerController.updateStore));
 module.exports = router;
+
+
 
 
