@@ -1,0 +1,296 @@
+extends layout 
+
+block content 
+
+    .app__wrapper
+        .app__header
+            .header__wrapper
+                h1 Explore
+                .header__menu__wrapper
+                    button.hamburger.hamburger--spring
+                        span.hamburger-box
+                            span.hamburger-inner
+        .app__body
+            .body__img__warpper
+                img(src=`/uploads/${selectedStore.photo || 'salon.jpg'}`, alt="store photo")
+            .body__each__content
+                h1= selectedStore.name
+                h2 Eyelash Technician
+                .each__reviews
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                .body__each__des
+                    p=  selectedStore.description
+                .body__map__wrapper
+                    .each__map#map
+                    .map__location 
+                        p= selectedStore.location.address
+                .body__contact__button 
+                    input.button__wrapper(type="button", value="Make Booking")
+
+        .app__navigation
+            .app__nav__inner.app__selected
+                a(href="/app/explore")
+                    .app__nav__img__wrp
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                    h3 Explore
+            .app__nav__inner
+                a(href="/app/favourites")
+                    .app__nav__img__wrp
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/heart.svg#favouritesIcon")
+                    h3 My Favourites
+            .app__nav__inner
+                a(href="/app/bookings")    
+                    .app__nav__img__wrp
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
+                    h3 My Bookings
+        .app__nav 
+            .app__nav__inner
+                button.hamburger2.hamburger--spring.is-active
+                    span.hamburger-box
+                        span.hamburger-inner
+                .app__nav__header
+                    .app__nav__header__img
+                        img(src="/images/hamster.jpg", alt="")
+                    .app__nav__header__title
+                        h2= user.name
+                        p= user.email
+                .app__nav__body
+                    a(href="/user/account")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/settings.svg#settingsIcon")
+                            .app__nav__page
+                                p Account Settings
+                    -let isOwner = false;
+                        each store in stores
+                            if  user && store.author.equals(user._id)
+                                - isOwner = true;
+                                a(href=`/app/${store._id}/edit`)
+                                    .app__nav__section
+                                        .app__nav__icon
+                                            span.menu__icon
+                                                svg(width="24px", height="24px")
+                                                    use(xlink:href="/images/icons/settings-1.svg#editStoreIcon")
+                                        .app__nav__page
+                                            p Edit your store       
+                        if !isOwner
+                                a(href="/app/seller/create")
+                                    .app__nav__section
+                                        .app__nav__icon
+                                            span.menu__icon
+                                                svg(width="24px", height="24px")
+                                                    use(xlink:href="/images/icons/shopping-cart.svg#shoppingIcon")
+                                        .app__nav__page
+                                            p Become a seller today
+                    a(href="/logout")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/logout.svg#logoutIcon")
+                            .app__nav__page
+                                p Log out
+    .app__blackout
+    script( async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCerHxNdBFQQUJPkJLSyJey7w0Z0WX-w0U&callback=initMap")
+    script.
+        console.log();
+        function initMap() {
+            let location = {
+            lat: #{selectedStore.location.coordinates[1]},
+            lng: #{selectedStore.location.coordinates[0]}
+            };
+            let map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 15,
+            center: location,
+            styles: [
+                        {
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#f5f5f5"
+                            }
+                            ]
+                        },
+                        {
+                            "elementType": "labels.icon",
+                            "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                            ]
+                        },
+                        {
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#f49fe3"
+                            }
+                            ]
+                        },
+                        {
+                            "elementType": "labels.text.stroke",
+                            "stylers": [
+                            {
+                                "color": "#f5f5f5"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "administrative.land_parcel",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#f49fe3"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#eeeeee"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "poi",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#f49fe3"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.park",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#e5e5e5"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "poi.park",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#9e9e9e"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "road",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "road.arterial",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#f49fe3"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#dadada"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "road.highway",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#616161"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "road.local",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#f49fe3"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "transit.line",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#e5e5e5"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "transit.station",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#eeeeee"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "geometry",
+                            "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                            ]
+                        },
+                        {
+                            "featureType": "water",
+                            "elementType": "labels.text.fill",
+                            "stylers": [
+                            {
+                                "color": "#9e9e9e"
+                            }
+                            ]
+                        }
+                        ]
+            });
+            let marker = new google.maps.Marker({
+            position: location,
+            map: map
+            });
+      }
+   
+
+   
+        
+    
+    
+   

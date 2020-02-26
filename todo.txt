@@ -4,10 +4,11 @@ TODO //
 
 - auto population of lat and lan // address input 
 - photo upload for users 
-- base styling of stores
+
 
 
 COMPLETED //
-
+    - base styling of stores
 
 BUGS // 
+    - mobile menu locks to a part of the page you arent on 

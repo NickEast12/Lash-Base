@@ -1,17 +1,13 @@
-@import 'partials/login';
-@import 'partials/variables';
-@import 'partials/universal';
-@import 'partials/flashes';
-@import 'partials/apphome';
-@import 'partials/homepage';
-@import 'partials/userAccount';
-@import 'partials/createStore';
-@import 'partials/storeCards';
+@import "partials/login";
+@import "partials/variables";
+@import "partials/universal";
+@import "partials/flashes";
+@import "partials/apphome";
+@import "partials/homepage";
+@import "partials/userAccount";
+@import "partials/createStore";
+@import "partials/storeCards";
+@import "partials/eachStores";
 
-
-
-
-
-
-
-
+//hamburges import
+@import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";

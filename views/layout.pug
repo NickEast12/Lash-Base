@@ -11,6 +11,9 @@ html
     href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
     crossorigin="anonymous")
+    //- script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places")
+
+    
   body
 
   block content
@@ -20,7 +23,8 @@ html
 
 
 
-
+  block scripts 
+      script(src="/dist/App.bundle.js")
   block messages
     if locals.flashes
           .flash-messages

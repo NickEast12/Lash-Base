@@ -9,6 +9,10 @@ const storeSchema = new mongoose.Schema({
         required: 'Please enter your business name'
     },
     slug: String,
+    userType: {
+        type: String,
+        trim: true
+    },
     description: {
         type: String,
         trim: true,
@@ -33,6 +37,7 @@ const storeSchema = new mongoose.Schema({
             required: 'You must supply a address'
         }
     },
+    photo: String,
     author: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',

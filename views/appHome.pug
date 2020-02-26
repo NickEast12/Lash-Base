@@ -5,28 +5,87 @@ include mixins/_storeCard
 block content
 
 
+
     .app__wrapper
         .app__header
             .header__wrapper
-                h1= title
+                h1= title 
+                .header__menu__wrapper
+                    button.hamburger.hamburger--spring
+                        span.hamburger-box
+                            span.hamburger-inner
             .header__search
                 input(type="text" placeholder="Find a lash tech..")
         .app__body
             each store in stores
                  +storeCard(store)
         .app__navigation
-            .app__nav__inner
+            .app__nav__inner.app__selected
                 a(href="/app/explore")
                     .app__nav__img__wrp
-                        img(src="/images/icons/magnifying-glass.svg", alt="searching")
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
                     h3 Explore
             .app__nav__inner
                 a(href="/app/favourites")
                     .app__nav__img__wrp
-                        img(src="/images/icons/heart.svg", alt="searching")
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/heart.svg#favouritesIcon")
                     h3 My Favourites
             .app__nav__inner
                 a(href="/app/bookings")    
                     .app__nav__img__wrp
-                        img(src="/images/icons/shopping-bag.svg", alt="searching")
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
                     h3 My Bookings
+        .app__nav 
+            .app__nav__inner
+                button.hamburger2.hamburger--spring.is-active
+                    span.hamburger-box
+                        span.hamburger-inner
+                .app__nav__header
+                    .app__nav__header__img
+                        img(src="/images/hamster.jpg", alt="")
+                    .app__nav__header__title
+                        h2= user.name
+                        p= user.email
+                .app__nav__body
+                    a(href="/user/account")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/settings.svg#settingsIcon")
+                            .app__nav__page
+                                p Account Settings
+                    -let isOwner = false;
+                        each store in stores
+                            if  user && store.author.equals(user._id)
+                                - isOwner = true;
+                                a(href=`/app/${store._id}/edit`)
+                                    .app__nav__section
+                                        .app__nav__icon
+                                            span.menu__icon
+                                                svg(width="24px", height="24px")
+                                                    use(xlink:href="/images/icons/settings-1.svg#editStoreIcon")
+                                        .app__nav__page
+                                            p Edit your store       
+                        if !isOwner
+                                a(href="/app/seller/create")
+                                    .app__nav__section
+                                        .app__nav__icon
+                                            span.menu__icon
+                                                svg(width="24px", height="24px")
+                                                    use(xlink:href="/images/icons/shopping-cart.svg#shoppingIcon")
+                                        .app__nav__page
+                                            p Become a seller today
+                    a(href="/logout")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/logout.svg#logoutIcon")
+                            .app__nav__page
+                                p Log out
+    .app__blackout
+   

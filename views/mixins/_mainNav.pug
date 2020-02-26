@@ -1,0 +1,29 @@
+mixin navigation(user = {})
+    .app__nav 
+        .app__nav__inner
+            button.hamburger2.hamburger--spring.is-active
+                span.hamburger-box
+                    span.hamburger-inner
+        .app__nav__header
+            .app__nav__header__img
+                img(src="/images/hamster.jpg", alt="")
+            .app__nav__header__title
+                h2= user.name
+                    p= user.email
+        .app__nav__body
+            a(href="/user/account")
+                .app__nav__section
+                    .app__nav__icon
+                        span.menu__icon
+                            svg(width="24px", height="24px")
+                                use(xlink:href="/images/icons/settings.svg#settingsIcon")
+                    .app__nav__page
+                        p Account Settings
+            a(href="/logout")
+                .app__nav__section
+                    .app__nav__icon
+                        span.menu__icon
+                            svg(width="24px", height="24px")
+                                use(xlink:href="/images/icons/logout.svg#logoutIcon")
+                    .app__nav__page
+                        p Log out
