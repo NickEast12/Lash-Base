@@ -39,13 +39,28 @@ router.get("/app/explore", catchErrors(userController.explore));
 router.get("/app/favourites", catchErrors(userController.favourites));
 router.get("/app/bookings", catchErrors(userController.bookings));
 //? route to getting account need to be loggin in
+
 router.get(
   "/user/account",
-  authController.isLoggedIn,
   authController.userAccount
 );
+
+//* account password reset
+router.get('/user/forgot', catchErrors(authController.forgotPassword));
+//* post request - submit form
+router.post('/user/forgot/post', catchErrors(authController.forgot));
+// //* handle the incoming token request 
+router.get('/account/reset/:token', catchErrors(authController.reset));
+
+router.post(
+  "/account/reset/:token",
+  authController.confirmedPasswords,
+  catchErrors(authController.update)
+);
+
 //? route to updating account need to be loggin in
 router.post("/userUpdate", catchErrors(authController.userUpdate));
+
 
 //! Seller Routing
 
@@ -71,6 +86,10 @@ router.post("/app/:id/edit",
 //? get store by slug -- visit the store
 
 router.get("/app/explore/:id", catchErrors(sellerController.getStoreBySlug));
+
+//? API end points
+
+router.get('/api/v1/search', catchErrors(sellerController.searchStores));
 
 
 module.exports = router;

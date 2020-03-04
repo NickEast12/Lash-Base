@@ -1,15 +1,15 @@
 .app__body {
   .body__img__warpper {
-    width: 100%;
-    margin-top: 4rem;
+    width: 80%;
+    margin: 5.5rem auto 0 auto;
     margin-bottom: -5px;
     img {
       width: 100%;
-      height: 17rem;
+      height: 14rem;
+      border-radius: 5px
     }
   }
   .body__each__content {
-    background: white;
     text-align: center;
     padding-top: 1.25rem;
     padding-bottom: 7.5rem;
@@ -43,7 +43,6 @@
       }
     }
     .body__each__des {
-      background: white;
       padding: 1rem 0;
       text-align: center;
       width: 75%;
@@ -62,6 +61,7 @@
       .map__location {
         padding: 1.5rem 0 1rem 0;
         text-align: center;
+        margin-bottom: .25rem;
         p {
           width: 75%;
           margin: 0 auto;
@@ -72,6 +72,9 @@
     .body__contact__button {
       width: 75%;
       margin: 0 auto;
+      // position: fixed;
+      // bottom: calc(0% + 6rem);
+      // left: calc(0% + 12.5%);
     }
   }
 }

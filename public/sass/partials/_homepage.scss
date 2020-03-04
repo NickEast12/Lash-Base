@@ -57,6 +57,15 @@
             position: relative;
             z-index: 4;
         }
+        .forgot__label {
+            color: black;
+            position: relative;
+            z-index: 10;
+            margin: 1rem 0;
+        }
+        .forgot__input {
+            border: rgba(0, 0, 0, .1) 1px solid;
+        }
         .home__input__wrapper {
             width: 75%;
             margin: 1rem auto;
@@ -98,6 +107,13 @@
                 6px 6px 16px 0 rgba(217, 210, 200, 0.51)
             }
         }
+        .reset__form {
+            margin-top: 1.5rem;
+            h3 {
+                position: relative;
+                z-index: 5;
+            }
+        }
 
     }   
     .home__lower__wrapper {
@@ -115,6 +131,24 @@
                 color: #f39fdc;
                 font-weight: 900;
             }
+            .back__link {
+                font-size: 1.5rem;
+                font-weight: 600;
+                position: relative;
+                z-index: 5;
+            }
+            .forgot__link {
+                .forgot__button {
+                    width: 50%;
+                    margin: 1rem auto;
+                    border: solid #f39fdc 2px; 
+                    padding: .35rem 0;
+                    background: none;
+                    color: #f39fdc;
+                    font-size: 1rem;
+                }
+            }
+            
         }
     }
     .seller__lower {

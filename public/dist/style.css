@@ -75,13 +75,12 @@ body {
 
 .flash-messages {
   position: absolute;
-  width: 85%;
-  top: calc(0% + 10px);
-  left: calc(0% + 25px);
+  width: 100%;
+  top: 0;
+  left: 0;
   z-index: 10; }
 
 .flash {
-  background: whitesmoke;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   margin-bottom: 2rem;
   padding: 2rem;
@@ -109,7 +108,6 @@ body {
   .flash:after {
     content: '';
     display: block;
-    background: white;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -118,11 +116,11 @@ body {
     z-index: -1;
     border-radius: 3px; }
   .flash--success {
-    border: solid green 1px; }
+    background: rgba(60, 179, 113, 0.8); }
   .flash--error {
-    border: solid red 4px; }
+    background: rgba(255, 69, 0, 0.8); }
   .flash--info {
-    border: solid orange 4px; }
+    background: rgba(255, 140, 0, 0.8); }
   .flash p {
     margin: 0; }
 
@@ -132,59 +130,65 @@ body {
   overflow-x: hidden; }
   .app__wrapper .app__header {
     width: 100%;
-    background: whitesmoke;
-    text-align: center;
     position: fixed;
     top: 0;
     z-index: 5;
-    box-shadow: 2px -5px 15px 2px rgba(0, 0, 0, 0.15); }
+    background: white; }
     .app__wrapper .app__header .header__wrapper {
-      padding: 1.75rem 0 0.5rem 0;
-      position: relative;
-      width: 85%;
-      margin: 0 auto;
-      display: -ms-grid;
-      display: grid;
-      -ms-grid-columns: 1fr 1fr;
-          grid-template-columns: 1fr 1fr; }
-      .app__wrapper .app__header .header__wrapper h1 {
-        font-weight: 500;
-        text-align: left;
-        margin-bottom: 0.45rem; }
-      .app__wrapper .app__header .header__wrapper .header__menu__wrapper {
-        text-align: right;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: end;
-            justify-content: flex-end; }
-        .app__wrapper .app__header .header__wrapper .header__menu__wrapper .hamburger {
-          background: whitesmoke;
-          padding-top: 3.5px;
-          width: 45px;
-          height: 45px;
-          border-radius: 5px;
-          margin-right: 5px;
-          box-shadow: 6px 6px 8px -1px rgba(0, 0, 0, 0.15), -6px -6px 8px -1px rgba(255, 255, 255, 0.7); }
-      .app__wrapper .app__header .header__wrapper .setting__icon_wrapper {
-        position: absolute;
-        top: calc(0% + 24px);
-        right: calc(0% + 30px); }
-        .app__wrapper .app__header .header__wrapper .setting__icon_wrapper img {
-          width: 24px; }
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-line-pack: distribute;
+          align-content: space-around;
+      padding: .5rem 0; }
+      .app__wrapper .app__header .header__wrapper .header__icon__box {
+        -ms-flex-positive: .55;
+            flex-grow: .55;
+        text-align: center; }
+        .app__wrapper .app__header .header__wrapper .header__icon__box img {
+          width: 40px;
+          height: 35px;
+          border-radius: 50%; }
+      .app__wrapper .app__header .header__wrapper .header__title__box {
+        -ms-flex-positive: 2;
+            flex-grow: 2;
+        text-align: center; }
+        .app__wrapper .app__header .header__wrapper .header__title__box h1 {
+          font-family: 'Kalam', cursive; }
+      .app__wrapper .app__header .header__wrapper .header__search__box {
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+        text-align: center; }
     .app__wrapper .app__header .header__search {
+      display: none;
       width: 85%;
       margin: 0 auto;
-      padding-bottom: 0.85rem; }
+      padding-bottom: 0.85rem;
+      position: relative; }
       .app__wrapper .app__header .header__search input {
-        background: whitesmoke;
+        background: white;
         z-index: 2;
         height: 3rem;
         width: 100%;
         border-radius: 5px;
         padding-left: 10px;
         font-size: 0.95rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 6px 6px 8px -1px rgba(0, 0, 0, 0.15), -6px -6px 8px -1px rgba(255, 255, 255, 0.7); }
+        border: solid #f39fdc 1px; }
+      .app__wrapper .app__header .header__search .search__results {
+        position: absolute;
+        width: 100%;
+        background: white;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px; }
+        .app__wrapper .app__header .header__search .search__results .search__result {
+          display: block;
+          text-align: left;
+          padding: .45rem 0 .5rem .45rem; }
+          .app__wrapper .app__header .header__search .search__results .search__result strong {
+            display: block; }
   .app__wrapper .app__body {
     background: whitesmoke; }
   .app__wrapper .app__navigation {
@@ -221,7 +225,7 @@ body {
       .app__wrapper .app__navigation .app__selected h3 {
         opacity: 1; }
   .app__wrapper .app__nav {
-    background: white;
+    background: #f2f2f2;
     width: 75%;
     height: 100%;
     position: absolute;
@@ -230,41 +234,54 @@ body {
     z-index: 6;
     -ms-transform: translateX(-100%);
         transform: translateX(-100%);
-    transition: transform 0.6s ease-in-out; }
+    transition: transform 0.3s linear; }
     .app__wrapper .app__nav .app__nav__inner {
       width: 80%;
       margin: 2rem auto 0 auto;
       position: relative; }
-      .app__wrapper .app__nav .app__nav__inner .hamburger2 {
+      .app__wrapper .app__nav .app__nav__inner .cancel__menu {
         position: absolute;
         top: 0;
-        right: 0; }
+        right: 0;
+        fill: #f39fdc; }
       .app__wrapper .app__nav .app__nav__inner .app__nav__header {
-        padding: 4rem 0 1.75rem 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.095);
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-align: start;
-            align-items: flex-start;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly; }
-        .app__wrapper .app__nav .app__nav__inner .app__nav__header .app__nav__header__img {
-          -ms-flex: 0 1 auto;
-              flex: 0 1 auto; }
-          .app__wrapper .app__nav .app__nav__inner .app__nav__header .app__nav__header__img img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%; }
+        padding: 2rem 0 1.75rem 0.45rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.095); }
+        .app__wrapper .app__nav .app__nav__inner .app__nav__header .app__nav__header__img img {
+          width: 70px;
+          height: 65px;
+          border-radius: 50%; }
         .app__wrapper .app__nav .app__nav__inner .app__nav__header .app__nav__header__title {
-          padding-top: 5px; }
+          padding-top: 15px; }
           .app__wrapper .app__nav .app__nav__inner .app__nav__header .app__nav__header__title h2 {
-            font-size: 0.9rem;
-            font-weight: 600; }
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 3px; }
           .app__wrapper .app__nav .app__nav__inner .app__nav__header .app__nav__header__title p {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: rgba(0, 0, 0, 0.5); }
       .app__wrapper .app__nav .app__nav__inner .app__nav__body {
         margin-top: 1.5rem; }
+        .app__wrapper .app__nav .app__nav__inner .app__nav__body .app__nav__btn {
+          width: 100%;
+          padding: .2rem .45rem 1.4rem .45rem;
+          border-bottom: solid rgba(0, 0, 0, 0.1) 1px; }
+          .app__wrapper .app__nav .app__nav__inner .app__nav__body .app__nav__btn button {
+            width: 95%;
+            margin: 0 auto;
+            padding: .95rem 0 .25rem 0;
+            background: #f39fdc;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-size: .9em;
+            font-weight: 600;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: distribute;
+                justify-content: space-around; }
+            .app__wrapper .app__nav .app__nav__inner .app__nav__body .app__nav__btn button i svg {
+              fill: white; }
         .app__wrapper .app__nav .app__nav__inner .app__nav__body .app__nav__section {
           display: -ms-flexbox;
           display: flex;
@@ -349,6 +366,13 @@ body {
       margin: .45rem 0;
       position: relative;
       z-index: 4; }
+    .homepage__main__wrapper .home__inner .forgot__label {
+      color: black;
+      position: relative;
+      z-index: 10;
+      margin: 1rem 0; }
+    .homepage__main__wrapper .home__inner .forgot__input {
+      border: rgba(0, 0, 0, 0.1) 1px solid; }
     .homepage__main__wrapper .home__inner .home__input__wrapper {
       width: 75%;
       margin: 1rem auto;
@@ -382,6 +406,11 @@ body {
         color: whitesmoke;
         border: 1px solid rgba(255, 255, 255, 0.2);
         box-shadow: -6px -6px 26px 0 white, 6px 6px 16px 0 rgba(217, 210, 200, 0.51); }
+    .homepage__main__wrapper .home__inner .reset__form {
+      margin-top: 1.5rem; }
+      .homepage__main__wrapper .home__inner .reset__form h3 {
+        position: relative;
+        z-index: 5; }
   .homepage__main__wrapper .home__lower__wrapper {
     width: 75%;
     margin: 1.25rem auto 0 auto;
@@ -397,6 +426,19 @@ body {
     .homepage__main__wrapper .home__lower__wrapper .home__lower__grid .register__link {
       color: #f39fdc;
       font-weight: 900; }
+    .homepage__main__wrapper .home__lower__wrapper .home__lower__grid .back__link {
+      font-size: 1.5rem;
+      font-weight: 600;
+      position: relative;
+      z-index: 5; }
+    .homepage__main__wrapper .home__lower__wrapper .home__lower__grid .forgot__link .forgot__button {
+      width: 50%;
+      margin: 1rem auto;
+      border: solid #f39fdc 2px;
+      padding: .35rem 0;
+      background: none;
+      color: #f39fdc;
+      font-size: 1rem; }
   .homepage__main__wrapper .seller__lower {
     width: 75%;
     margin: 1.25rem auto 0 auto;
@@ -412,6 +454,8 @@ body {
 .update__account__wrappper {
   width: 85%;
   margin: 9rem auto 0 auto; }
+  .update__account__wrappper h2 {
+    padding-bottom: 1.5rem; }
 
 .create__store__wrapper {
   width: 75%;
@@ -507,21 +551,21 @@ body {
           padding-left: 4.5px; }
 
 .store__styling:last-child .store__card__inner {
-  margin-bottom: 7.5rem; }
+  margin-bottom: 6.5rem; }
 
 .store__styling:first-child .store__card__inner {
-  margin-top: 10rem; }
+  margin-top: 6rem; }
 
 .app__body .body__img__warpper {
-  width: 100%;
-  margin-top: 4rem;
+  width: 80%;
+  margin: 5.5rem auto 0 auto;
   margin-bottom: -5px; }
   .app__body .body__img__warpper img {
     width: 100%;
-    height: 17rem; }
+    height: 14rem;
+    border-radius: 5px; }
 
 .app__body .body__each__content {
-  background: white;
   text-align: center;
   padding-top: 1.25rem;
   padding-bottom: 7.5rem; }
@@ -548,7 +592,6 @@ body {
     .app__body .body__each__content .each__reviews .reviews--selected svg {
       opacity: 1; }
   .app__body .body__each__content .body__each__des {
-    background: white;
     padding: 1rem 0;
     text-align: center;
     width: 75%;
@@ -562,7 +605,8 @@ body {
     height: 7.5rem; }
   .app__body .body__each__content .body__map__wrapper .map__location {
     padding: 1.5rem 0 1rem 0;
-    text-align: center; }
+    text-align: center;
+    margin-bottom: .25rem; }
     .app__body .body__each__content .body__map__wrapper .map__location p {
       width: 75%;
       margin: 0 auto;
@@ -595,7 +639,7 @@ body {
     background-color: #f39fdc; }
 
 .hamburger-box {
-  width: 25px;
+  width: 30px;
   height: 18px;
   display: inline-block;
   position: relative; }
@@ -605,7 +649,7 @@ body {
   top: 50%;
   margin-top: -1px; }
   .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-    width: 25px;
+    width: 30px;
     height: 2px;
     background-color: #f39fdc;
     border-radius: 0px;
@@ -625,7 +669,7 @@ body {
    * 3DX
    */
 .hamburger--3dx .hamburger-box {
-  perspective: 50px; }
+  perspective: 60px; }
 
 .hamburger--3dx .hamburger-inner {
   transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -644,7 +688,7 @@ body {
    * 3DX Reverse
    */
 .hamburger--3dx-r .hamburger-box {
-  perspective: 50px; }
+  perspective: 60px; }
 
 .hamburger--3dx-r .hamburger-inner {
   transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -663,7 +707,7 @@ body {
    * 3DY
    */
 .hamburger--3dy .hamburger-box {
-  perspective: 50px; }
+  perspective: 60px; }
 
 .hamburger--3dy .hamburger-inner {
   transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -682,7 +726,7 @@ body {
    * 3DY Reverse
    */
 .hamburger--3dy-r .hamburger-box {
-  perspective: 50px; }
+  perspective: 60px; }
 
 .hamburger--3dy-r .hamburger-inner {
   transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -701,7 +745,7 @@ body {
    * 3DXY
    */
 .hamburger--3dxy .hamburger-box {
-  perspective: 50px; }
+  perspective: 60px; }
 
 .hamburger--3dxy .hamburger-inner {
   transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -720,7 +764,7 @@ body {
    * 3DXY Reverse
    */
 .hamburger--3dxy-r .hamburger-box {
-  perspective: 50px; }
+  perspective: 60px; }
 
 .hamburger--3dxy-r .hamburger-inner {
   transition: transform 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), background-color 0s 0.1s cubic-bezier(0.645, 0.045, 0.355, 1); }
@@ -739,19 +783,19 @@ body {
    * Arrow
    */
 .hamburger--arrow.is-active .hamburger-inner::before {
-  transform: translate3d(-5px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+  transform: translate3d(-6px, 0, 0) rotate(-45deg) scale(0.7, 1); }
 
 .hamburger--arrow.is-active .hamburger-inner::after {
-  transform: translate3d(-5px, 0, 0) rotate(45deg) scale(0.7, 1); }
+  transform: translate3d(-6px, 0, 0) rotate(45deg) scale(0.7, 1); }
 
 /*
    * Arrow Right
    */
 .hamburger--arrow-r.is-active .hamburger-inner::before {
-  transform: translate3d(5px, 0, 0) rotate(45deg) scale(0.7, 1); }
+  transform: translate3d(6px, 0, 0) rotate(45deg) scale(0.7, 1); }
 
 .hamburger--arrow-r.is-active .hamburger-inner::after {
-  transform: translate3d(5px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+  transform: translate3d(6px, 0, 0) rotate(-45deg) scale(0.7, 1); }
 
 /*
    * Arrow Alt
@@ -764,12 +808,12 @@ body {
 
 .hamburger--arrowalt.is-active .hamburger-inner::before {
   top: 0;
-  transform: translate3d(-5px, -6.25px, 0) rotate(-45deg) scale(0.7, 1);
+  transform: translate3d(-6px, -7.5px, 0) rotate(-45deg) scale(0.7, 1);
   transition: top 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22); }
 
 .hamburger--arrowalt.is-active .hamburger-inner::after {
   bottom: 0;
-  transform: translate3d(-5px, 6.25px, 0) rotate(45deg) scale(0.7, 1);
+  transform: translate3d(-6px, 7.5px, 0) rotate(45deg) scale(0.7, 1);
   transition: bottom 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22); }
 
 /*
@@ -783,12 +827,12 @@ body {
 
 .hamburger--arrowalt-r.is-active .hamburger-inner::before {
   top: 0;
-  transform: translate3d(5px, -6.25px, 0) rotate(45deg) scale(0.7, 1);
+  transform: translate3d(6px, -7.5px, 0) rotate(45deg) scale(0.7, 1);
   transition: top 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22); }
 
 .hamburger--arrowalt-r.is-active .hamburger-inner::after {
   bottom: 0;
-  transform: translate3d(5px, 6.25px, 0) rotate(-45deg) scale(0.7, 1);
+  transform: translate3d(6px, 7.5px, 0) rotate(-45deg) scale(0.7, 1);
   transition: bottom 0.1s ease, transform 0.1s 0.1s cubic-bezier(0.895, 0.03, 0.685, 0.22); }
 
 /*
@@ -955,14 +999,14 @@ body {
     transition-timing-function: ease-out;
     background-color: transparent !important; }
     .hamburger--emphatic.is-active .hamburger-inner::before {
-      left: -50px;
-      top: -50px;
-      transform: translate3d(50px, 50px, 0) rotate(45deg);
+      left: -60px;
+      top: -60px;
+      transform: translate3d(60px, 60px, 0) rotate(45deg);
       transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
     .hamburger--emphatic.is-active .hamburger-inner::after {
-      right: -50px;
-      top: -50px;
-      transform: translate3d(-50px, 50px, 0) rotate(-45deg);
+      right: -60px;
+      top: -60px;
+      transform: translate3d(-60px, 60px, 0) rotate(-45deg);
       transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 /*
@@ -984,14 +1028,14 @@ body {
     transition-timing-function: ease-out;
     background-color: transparent !important; }
     .hamburger--emphatic-r.is-active .hamburger-inner::before {
-      left: -50px;
-      top: 50px;
-      transform: translate3d(50px, -50px, 0) rotate(-45deg);
+      left: -60px;
+      top: 60px;
+      transform: translate3d(60px, -60px, 0) rotate(-45deg);
       transition: left 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
     .hamburger--emphatic-r.is-active .hamburger-inner::after {
-      right: -50px;
-      top: 50px;
-      transform: translate3d(-50px, -50px, 0) rotate(45deg);
+      right: -60px;
+      top: 60px;
+      transform: translate3d(-60px, -60px, 0) rotate(45deg);
       transition: right 0.125s ease-out, top 0.05s 0.125s linear, transform 0.125s 0.175s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 /*
@@ -1026,7 +1070,7 @@ body {
 .hamburger--slider.is-active .hamburger-inner {
   transform: translate3d(0, 8px, 0) rotate(45deg); }
   .hamburger--slider.is-active .hamburger-inner::before {
-    transform: rotate(-45deg) translate3d(-3.57143px, -6px, 0);
+    transform: rotate(-45deg) translate3d(-4.28571px, -6px, 0);
     opacity: 0; }
   .hamburger--slider.is-active .hamburger-inner::after {
     transform: translate3d(0, -16px, 0) rotate(-90deg); }
@@ -1047,7 +1091,7 @@ body {
 .hamburger--slider-r.is-active .hamburger-inner {
   transform: translate3d(0, 8px, 0) rotate(-45deg); }
   .hamburger--slider-r.is-active .hamburger-inner::before {
-    transform: rotate(45deg) translate3d(3.57143px, -6px, 0);
+    transform: rotate(45deg) translate3d(4.28571px, -6px, 0);
     opacity: 0; }
   .hamburger--slider-r.is-active .hamburger-inner::after {
     transform: translate3d(0, -16px, 0) rotate(90deg); }

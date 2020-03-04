@@ -12,17 +12,16 @@ const userSchema = new Schema({
         unique: true,
         lowercase: true,
         trim: true,
-        validate: [validator.isEmail, 'Invaid Email Format'],
-        require: 'Please supply a email address'
+        validate: [validator.isEmail, 'Invalid Email Address'],
+        required: 'Please Supply an email address'
     },
     name: {
         type: String,
-        require: 'Please supply a name',
+        required: 'Please supply a name',
         trim: true
     },
-    storeOwner: {
-        type: Boolean,
-    }
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 });
 userSchema.plugin(passportLocalMongoose, {
     usernameField: "email"

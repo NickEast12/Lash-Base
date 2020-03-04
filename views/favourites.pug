@@ -6,13 +6,19 @@ block content
     .app__wrapper
         .app__header
             .header__wrapper
-                h1= title
-                .header__menu__wrapper
-                    button.hamburger.hamburger--spring
-                        span.hamburger-box
-                            span.hamburger-inner
+                .header__icon__box.menu__button
+                    img(src="/images/hamster.jpg", alt="")
+                .header__title__box 
+                    a(href="/app/explore")
+                        h1= title
+                .header__search__box
+                    svg.search--active(width="20px", height="20px")
+                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+            .header__search
+                input(type="text" name="search" placeholder="Find a lash tech..")
+                .search__results
         .app__body
-            block appContent
+            
         .app__navigation
             .app__nav__inner
                 a(href="/app/explore")
@@ -34,16 +40,23 @@ block content
                     h3 My Bookings
         .app__nav 
             .app__nav__inner
-                button.hamburger2.hamburger--spring.is-active
-                    span.hamburger-box
-                        span.hamburger-inner
+                svg.cancel__menu(width="30px", height="30px")
+                    use(xlink:href="/images/icons/cancel.svg#cancelIcon")
                 .app__nav__header
                     .app__nav__header__img
                         img(src="/images/hamster.jpg", alt="")
                     .app__nav__header__title
-                        h2= user.name
+                        h2 #{user.name} 🌴
                         p= user.email
                 .app__nav__body
+                    .app__nav__btn
+                        button 
+                            i 
+                                svg(width="25px", height="25px")
+                                    use(xlink:href="/images/icons/upload.svg#uploadIcon") 
+                            |Upload a profile picture
+                            
+
                     a(href="/user/account")
                         .app__nav__section
                             .app__nav__icon
@@ -78,7 +91,16 @@ block content
                             .app__nav__icon
                                 span.menu__icon
                                     svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                            .app__nav__page
+                                p Sellers near me
+                    a(href="/logout")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
                                         use(xlink:href="/images/icons/logout.svg#logoutIcon")
                             .app__nav__page
                                 p Log out
     .app__blackout
+   

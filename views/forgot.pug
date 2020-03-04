@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+
+        .homepage__main__wrapper 
+            .home__inner
+                .home__title
+                    h1.main__title Password Reset
+                    form(action="/user/forgot/post" method="POST")
+                            h3.forgot__label(for="email" ) Email 
+                            input.login__input.forgot__input(type="email" name="email")
+                            input.login_btn(type="submit" value="Send a Reset")
+            .home__lower__wrapper
+                .home__lower__grid
+                        span.back__link
+                            a(href="/")
+                                br 
+                                | Back   

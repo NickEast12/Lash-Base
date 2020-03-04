@@ -7,70 +7,79 @@ $pink: #f39fdc;
   overflow-x: hidden;
   .app__header {
     width: 100%;
-    background: $background;
-    text-align: center;
     position: fixed;
     top: 0;
     z-index: 5;
-    box-shadow: 2px -5px 15px 2px rgba(0, 0, 0, 0.15);
+    // background: #16191f;
+    background: white;
+    
+    
     .header__wrapper {
-      padding: 1.75rem 0 0.5rem 0;
-      position: relative;
-      width: 85%;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      h1 {
-        font-weight: 500;
-        text-align: left;
-        margin-bottom: 0.45rem;
-      }
-      .header__menu__wrapper {
-        text-align: right;
-        display: flex;
-        justify-content: flex-end;
-        .hamburger {
-          // background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
-          background: $background;
-          padding-top: 3.5px;
-          width: 45px;
-          height: 45px;
-          border-radius: 5px;
-          margin-right: 5px;
-          box-shadow: 6px 6px 8px -1px rgba(0, 0, 0, 0.15),
-            -6px -6px 8px -1px rgba(255, 255, 255, 0.7);
-        }
-      }
-      .header__menu__wrapper {
-      }
-      .setting__icon_wrapper {
-        position: absolute;
-        top: calc(0% + 24px);
-        right: calc(0% + 30px);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      align-content: space-around;
+      padding: .5rem 0;
+      .header__icon__box {
+        flex-grow: .55;
+        text-align: center;
         img {
-          width: 24px;
+          width: 40px;
+          height: 35px;
+          border-radius: 50%;
         }
+      }
+      .header__title__box {
+        flex-grow: 2;
+        text-align: center;
+        h1 {
+          font-family: 'Kalam', cursive;
+
+        }
+      }
+      .header__search__box {
+        flex-grow: 1;
+        text-align: center;
       }
     }
     .header__search {
+      display: none;
       width: 85%;
       margin: 0 auto;
       padding-bottom: 0.85rem;
+      position: relative;
       input {
-        background: $background;
+        background: white;
         z-index: 2;
         height: 3rem;
         width: 100%;
         border-radius: 5px;
         padding-left: 10px;
         font-size: 0.95rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: solid $pink 1px;
+        // border: 1px solid rgba(255, 255, 255, 0.9);
         // box-shadow: -12px -12px 26px 0 rgba(255, 255, 255, 1),
         //   12px 12px 16px 0 rgba(217, 210, 200, 0.51);
 
-        box-shadow: 6px 6px 8px -1px rgba(0, 0, 0, 0.15),
-          -6px -6px 8px -1px rgba(255, 255, 255, 0.7);
+        // box-shadow: 6px 6px 8px -1px rgba(0, 0, 0, 0.15),
+        //   -6px -6px 8px -1px rgba(255, 255, 255, 0.7);
       }
+      .search__results {
+        position: absolute; 
+        width: 100%;
+        background: white;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        .search__result {
+          display: block;
+          text-align: left;
+          padding: .45rem 0 .5rem .45rem;
+          strong {
+            display: block;
+          }
+        }
+      }
+      
     }
   }
   .app__body {
@@ -119,7 +128,7 @@ $pink: #f39fdc;
     }
   }
   .app__nav {
-    background: white;
+    background: rgb(242, 242, 242);
     width: 75%;
     height: 100%;
     position: absolute;
@@ -127,44 +136,65 @@ $pink: #f39fdc;
     left: 0;
     z-index: 6;
     transform: translateX(-100%);
-    transition: transform 0.6s ease-in-out;
+    transition: transform 0.3s linear;
     .app__nav__inner {
       width: 80%;
       margin: 2rem auto 0 auto;
       position: relative;
-      .hamburger2 {
+      .cancel__menu {
         position: absolute;
         top: 0;
         right: 0;
+        fill: $pink;
       }
       .app__nav__header {
-        padding: 4rem 0 1.75rem 0;
+        padding: 2rem 0 1.75rem 0.45rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.095);
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-evenly;
         .app__nav__header__img {
-          flex: 0 1 auto;
           img {
-            width: 45px;
-            height: 45px;
+            width: 70px;
+            height: 65px;
             border-radius: 50%;
           }
         }
         .app__nav__header__title {
-          padding-top: 5px;
+          padding-top: 15px;
           h2 {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
+            margin-bottom: 3px;
           }
           p {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: rgba(0, 0, 0, 0.5);
           }
         }
       }
       .app__nav__body {
         margin-top: 1.5rem;
+        .app__nav__btn {
+          width: 100%;
+          padding: .2rem .45rem 1.4rem .45rem;
+          border-bottom: solid rgba(0, 0,0,.1) 1px;
+          button {
+            width: 95%;
+            margin: 0 auto;
+            padding: .95rem 0 .25rem 0;
+            background: $pink;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            font-size: .9em;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-around;
+            i {
+              svg {
+                fill: white;
+              }
+            }
+          }
+        }
         .app__nav__section {
           display: flex;
           justify-content: center;

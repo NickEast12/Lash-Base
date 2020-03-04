@@ -1,14 +1,16 @@
 // NICKS NODE PROJECT // LASHBASE 
 
-TODO //
-
-- auto population of lat and lan // address input 
-- photo upload for users 
-
-
+TODO //    
+    - Favourites page (shouldn't be that hard)
+    - Bookings page (I want it to send an email to the store owner that a booking has been requested)
+    - chop up menu.js into modules to stop error 
 
 COMPLETED //
     - base styling of stores
-
+    - photo upload for user
+    - auto population of lat and lan // address input  
+    - API so I can search my stores 
+    - password reset, email nodemailer 
 BUGS // 
     - mobile menu locks to a part of the page you arent on 
+    

@@ -44,11 +44,13 @@ const storeSchema = new mongoose.Schema({
         required: 'You must supply an author'
     }
 });
-
+//? Define our indexs
 storeSchema.index({
     name: 'text',
     description: 'text'
 });
+
+storeSchema.index({ location: '2dsphere' });
 
 
 storeSchema.pre("save", async function (next) {

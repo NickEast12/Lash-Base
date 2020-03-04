@@ -45,12 +45,11 @@ exports.register = async (req, res, next) => {
   await registerWithPromise(user, req.body.password);
   next(); //! pass off to auth
 };
-
 exports.explore = async (req, res) => {
   //? so we need to query the database and get the stores
   const stores = await Store.find();
   // console.log(stores);
-  res.render("appHome", { title: "Explore", stores: stores });
+  res.render("appHome", { title: "Lashbase", stores: stores });
 };
 exports.favourites = async (req, res) => {
   const stores = await Store.find();
