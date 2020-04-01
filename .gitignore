@@ -3,3 +3,4 @@ variables.env.now
 gulpfile.js
 /node_modules
 .DS_Store
+.now
