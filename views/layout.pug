@@ -3,10 +3,10 @@ html
   head
     title lashbase
     link(rel='stylesheet', href='/dist/style.css')
-    link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
+    //- link(rel="shortcut icon" type="image/png" href="/images/icons/doughnut.png")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet", href="fonts/Gordita.otf")
     link(href="https://fonts.googleapis.com/css?family=Kalam&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,700&display=swap" rel="stylesheet")
     link(
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -25,6 +25,7 @@ html
 
 
   block scripts 
+      script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS0xu6kisZjBJyi5FEr5cf6EtoaZPYTD8&libraries=places&callback=initMap")
       script(src="/dist/App.bundle.js")
   block messages
     if locals.flashes

@@ -1,0 +1,88 @@
+@media only screen and (min-width: 320px) {
+    .body__booking__popup {
+        // background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);  
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+        z-index: 50;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding: .2rem 0;
+        .booking__popup__innner {
+            padding: 2rem 1rem;
+            background: white;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            h3 {
+                font-weight: 700;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                font-family: 'Kalam', cursive;
+                text-align: center;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+                background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+            }
+            .booking__cancel__menu {
+                position: absolute;
+                right: calc(0% + 20px);
+                top: calc(0% + 20px);
+                fill: #000;
+                
+            }
+          form {
+              padding: .5rem 0;
+              input, textarea, button {
+                  display: block;
+                  background: whitesmoke;
+                  font-size: 1rem;
+                }
+                label {
+                    color: black;
+                }
+                
+               input {
+                   width: 100%;
+                   background: none;
+                   border-bottom: solid 1px rbga(0,0,0,.5);
+                   border-left: none;
+                   border-right: none;
+                   border-top: none;
+                   margin: .45rem 0;
+                   padding: .25rem 0;
+               }
+               textarea {
+                width: 100%;
+                height: 4rem;
+                background: none;
+                border-color: rgba(0,0,0,.15);
+                border-style: solid;
+                border-width: 0 0 1px 0;
+                resize: none;
+               }
+               button {
+                   width: 100%;
+                   margin: 2rem 0 .5rem 0;
+                   padding: .55rem ;    
+                   border: none;   
+                   background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+                   color: white;
+                   font-weight: 500;
+                   
+                }
+              
+          }
+        }
+    
+    }
+    
+}
+@media only screen and (min-width: 768px) {
+    .body__booking__popup {
+        width: 60%;
+        margin:  0 20%;
+    }
+}
+

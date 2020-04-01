@@ -1,0 +1,98 @@
+mixin bookings(store = {})
+    a.store__styling(href=`/app/explore/${selectedStore.slug}`)
+     .store__inner_card
+       .store__card__inner
+            .store__info__wrapper
+                .store__info__inner
+                    h2= selectedStore.name
+                    p  #{selectedStore.location.address}
+                    .store__lower
+                        each rating in averageRating
+                                if rating.slug === selectedStore.slug
+                                    - let i = Math.round(rating.averageRating * 10 / 10) 
+                                    if i <= 1 || null
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                    if i === 2
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                    if i === 3 
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                
+                                    if i === 4 
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                    if i === 5
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")

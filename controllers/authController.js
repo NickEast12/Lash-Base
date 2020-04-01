@@ -17,14 +17,12 @@ exports.login = passport.authenticate("local", {
 
 exports.logout = (req, res) => {
   req.logout();
-  console.log("user logged out");
   res.redirect("/");
 };
 
 exports.isLoggedIn = (req, res, next) => {
   //? check to see if the user is logged in
   if (req.isAuthenticated()) {
-    console.log("the user is logged in");
     next();
     return;
   }
@@ -41,7 +39,8 @@ exports.userAccount = async (req, res, next) => {
 exports.userUpdate = async (req, res) => {
   const updates = {
     email: req.body.email,
-    name: req.body.name
+    name: req.body.name,
+    photo: req.body.photo
   };
   const user = await User.findByIdAndUpdate(
     { _id: req.user._id },
@@ -87,7 +86,6 @@ exports.reset = async (req, res) => {
     resetPasswordToken: req.params.token,
     resetPasswordExpires: { $gt: Date.now() }
   });
-  console.log(user);
   //! if no user
   if (!user) {
     req.flash("error", "Password reset is invalid or had expired");

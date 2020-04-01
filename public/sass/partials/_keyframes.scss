@@ -1,0 +1,14 @@
+@keyframes slide-in-bottom {
+    0% {
+              transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+              transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in-bottom {
+	    animation: slide-in-bottom 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}

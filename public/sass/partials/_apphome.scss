@@ -1,5 +1,8 @@
+@import 'variables';
 $background: whitesmoke;
 $pink: #f39fdc;
+
+@media only screen and (min-width: 320px) {
 
 .app__wrapper {
   width: 100%;
@@ -34,6 +37,9 @@ $pink: #f39fdc;
         text-align: center;
         h1 {
           font-family: 'Kalam', cursive;
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
 
         }
       }
@@ -84,6 +90,9 @@ $pink: #f39fdc;
   }
   .app__body {
     background: whitesmoke;
+    width: 90%;
+    margin:  0 auto;
+    padding-bottom: 2.5rem;
   }
   .app__navigation {
     width: 100%;
@@ -92,9 +101,11 @@ $pink: #f39fdc;
     padding: 0.75rem 0.15rem;
     background: white;
     bottom: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     box-shadow: 2px 5px 20px -2px rgba(0, 0, 0, 0.15);
+    .app__navigation__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
     .app__nav__inner {
       text-align: center;
       padding: 0.75rem 0 0 0;
@@ -207,7 +218,8 @@ $pink: #f39fdc;
             flex-grow: 2;
             padding-left: 1rem;
             p {
-              font-weight: 600;
+              font-weight: 400;
+              letter-spacing: .25px;
             }
           }
         }
@@ -226,7 +238,97 @@ $pink: #f39fdc;
   z-index: 5;
   content: "";
 }
+}
+@media only screen and (max-width: 320px) {
+  
+  .app__wrapper .app__nav .app__nav__inner .app__nav__header {
+    padding-top: 0;
+  }
+  .app__wrapper .app__nav .app__nav__inner .app__nav__body .app__nav__btn {
+    font-size: .85rem;
+  }
+  .app__wrapper .app__nav .app__nav__inner .app__nav__body {
+    .app__nav__section {
+      padding: .5rem .4rem;
+      p {
+        font-weight: 100;
+        font-size: .95rem;
+      }
+    }
+  }
+  
+}
+@media only screen and (min-width: 768px) {
+  .app__wrapper {
+    .app__header {
+      .header__wrapper {
+        width: 75%;
+        margin:  0 auto;
+      }
+    }
+    .app__nav {
+      width: 45%;
+    }
+    .app__navigation {
+      .app__navigation__container {
+        width: 75%;
+        margin:  0 auto;
+      }
+    }
+    .app__body {
+      width: 55%;
+      margin:  0 auto;
+    }
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .app__wrapper {
+    .app__header {
+      .header__wrapper {
+        width: 55%;
+        margin:  0 auto;
+      }
+    }
+    .app__nav {
+      width: 35%;
+      max-width: 600px;
+    }
+    .app__navigation {
+      .app__navigation__container {
+        width: 55%;
+        margin:  0 auto;
+      }
+    }
+    .app__body {
+      width: 35%;
+      margin:  0 auto;
+    }
+  }
+}
 
+.pagination {
+  width: 90%;
+  margin: 0 auto 4rem auto;
+  text-align: center;
+  &__boxes {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 1.25rem auto;
+  }
+  &__prev {
+    text-align: left;
+  }
+  &__next {
+    text-align: right;
+  }
+  a {
+    background: $gradient;
+    padding: .25rem .75rem;
+    color: white;
+    border-radius: 4px;
+  }
+}
 .home__button__on {
   box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.15),
     inset -4px -4px 6px -1px rgba(245, 245, 245, 0.7);

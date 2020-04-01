@@ -1,9 +1,7 @@
 // NICKS NODE PROJECT // LASHBASE 
 
 TODO //    
-    - Favourites page (shouldn't be that hard)
-    - Bookings page (I want it to send an email to the store owner that a booking has been requested)
-    - chop up menu.js into modules to stop error 
+    - delete booking + more booking features 
 
 COMPLETED //
     - base styling of stores
@@ -11,6 +9,6 @@ COMPLETED //
     - auto population of lat and lan // address input  
     - API so I can search my stores 
     - password reset, email nodemailer 
+    - copy over new side menu -- maybe change the transtions in to a key frame
 BUGS // 
-    - mobile menu locks to a part of the page you arent on 
     

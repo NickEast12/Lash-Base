@@ -1,22 +1,29 @@
 .app__body {
+  position: relative;
   .body__img__warpper {
-    width: 80%;
+    width: 90%;
     margin: 5.5rem auto 0 auto;
     margin-bottom: -5px;
     img {
       width: 100%;
-      height: 14rem;
+      height: 12.5rem;
       border-radius: 5px
     }
   }
   .body__each__content {
-    text-align: center;
+    text-align: left;
     padding-top: 1.25rem;
     padding-bottom: 7.5rem;
+    width: 90%;
+    margin: 0 auto;
     h1 {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 0.35rem;
+    }
+    .each__content__flex {
+      display: flex;
+      justify-content: space-between;
     }
     h2 {
       font-style: italic;
@@ -25,11 +32,9 @@
       font-weight: 600;
     }
     .each__reviews {
-      width: 30%;
-      margin: 0 auto;
+      text-align: right;
       display: flex;
       justify-content: space-around;
-      padding: 0.5rem 0;
       .each__reviews__grid {
         svg {
           opacity: 0.25;
@@ -43,38 +48,72 @@
       }
     }
     .body__each__des {
-      padding: 1rem 0;
-      text-align: center;
-      width: 75%;
-      margin: 0 auto;
+      padding: 2rem 0;
+      width: 100%;
       p {
         line-height: 22.5px;
-        font-style: italic;
+      }
+      
+    }
+    .each__menu {
+      .treatment__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+        .treatments {
+          font-size: 1.1rem;
+          margin-bottom: .75rem
+        }
+        .price__range {
+          font-weight: 100;
+          font-style: italic;
+        }
+        p {
+          font-weight: 100;
+          font-style: italic;
+        }
       }
     }
     .body__map__wrapper {
+      h4 {
+        font-size: 1.1rem;
+        margin-top: 2.5rem;
+      }
       .each__map {
-        width: 90%;
-        margin: 0 auto;
-        height: 7.5rem;
+        width: 100%;
+        margin: 1rem auto 1rem auto;
+        height: 10.5rem;
+        border: solid black 1px;
       }
       .map__location {
         padding: 1.5rem 0 1rem 0;
         text-align: center;
         margin-bottom: .25rem;
         p {
-          width: 75%;
-          margin: 0 auto;
+          width: 100%;
+          margin: 0 auto 0 0;
+          text-align: left;
           font-style: italic;
         }
       }
     }
     .body__contact__button {
-      width: 75%;
+      width: 100%;
       margin: 0 auto;
-      // position: fixed;
-      // bottom: calc(0% + 6rem);
-      // left: calc(0% + 12.5%);
+      position: fixed;
+      bottom: calc(0% + 4.3rem);
+      left: 0;
+      input {
+        border-radius: 0;
+      }
+    }
+    .no__reviews {
+      width: 100%;
+      border: solid black 1px;
+      padding: 1rem;
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1.1rem;
     }
   }
 }

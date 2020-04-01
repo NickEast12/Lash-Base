@@ -1,5 +1,7 @@
 extends layout 
 
+include mixins/_review
+
 block content 
 
    
@@ -7,13 +9,22 @@ block content
         .app__header
             .header__wrapper
                 .header__icon__box.menu__button
-                    img(src="/images/hamster.jpg", alt="")
+                    img(src=`/uploads/${user.photo || 'salon.jpg' }`, alt="")
                 .header__title__box 
                     a(href="/app/explore")
                         h1 Lashbase
                 .header__search__box
-                    svg.search--active(width="20px", height="20px")
-                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                    form(method="POST" action=`/api/stores/${selectedStore._id}/favourites` class="favourites__form")
+                        - const favStrings = user.favourites.map(obj => obj.toString())
+                        - const ticked = favStrings.includes(selectedStore._id.toString()) ? 'heart__button--hearted' : ''
+                            if ticked 
+                                button(type="submit" class=ticked name="heart")
+                                    svg.full__heart(width="25px", height="25px")
+                                        use(xlink:href=`/images/icons/fullheart.svg#fullHeart`) 
+                            else 
+                                button.empty__heart(type="submit" name="heart")
+                                    svg(width="25px", height="25px" )
+                                        use(xlink:href=`/images/icons/fullheart.svg#fullHeart`) 
             .header__search
                 input(type="text" name="search" placeholder="Find a lash tech..")
                 .search__results
@@ -22,67 +33,178 @@ block content
                 img(src=`/uploads/${selectedStore.photo || 'salon.jpg'}`, alt="store photo")
             .body__each__content
                 h1= selectedStore.name
-                h2 Eyelash Technician
-                .each__reviews
-                    .each__reviews__grid.reviews--selected 
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
-                    .each__reviews__grid.reviews--selected 
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
-                    .each__reviews__grid.reviews--selected 
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
-                    .each__reviews__grid
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/star.svg#starIcon")
-                    .each__reviews__grid
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/star.svg#starIcon")
+                .each__content__flex
+                    h2 Eyelash Technician
+                    each rating in averageRating
+                            if rating.slug === selectedStore.slug
+                                - let i = Math.round(rating.averageRating * 10 / 10) 
+                                if i <= 1 || null
+                                    .each__reviews
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                if i === 2
+                                    .each__reviews
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                if i === 3 
+                                    .each__reviews
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                            
+                                if i === 4 
+                                    .each__reviews
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                                if i === 5
+                                    .each__reviews
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid.reviews--selected 
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                        .each__reviews__grid
+                                            svg(width="20px", height="20px")
+                                                use(xlink:href="/images/icons/star.svg#starIcon")
+                            
                 .body__each__des
                     p=  selectedStore.description
+                .each__menu
+                    .treatment__wrapper
+                        h4.treatments Treatments
+                        p.price__range Price range
+                    .treatment__wrapper
+                        h4 #{selectedStore.menu.treatment[0] || 'N/A'}
+                        p  £ #{selectedStore.menu.price[0] || 'N/A'}
+                    .treatment__wrapper
+                        h4 #{selectedStore.menu.treatment[1] || 'N/A'}
+                        p  £ #{selectedStore.menu.price[1] || 'N/A'}
                 .body__map__wrapper
-                    .each__map#map
+                    h4 Address
+                    .each__map#map2
                     .map__location 
-                        p= selectedStore.location.address
+                        p= selectedStore.location.address   
+                if selectedStore.reviews.length
+                    .display__reviews
+                        h3  Reviews
+                        each review in selectedStore.reviews
+                            .review
+                                +review(review)
+                else 
+                    h2.no__reviews no reviews
                 .body__contact__button 
-                    input.button__wrapper(type="button", value="Make Booking")
+                    input.button__wrapper.booking__button(type="button", value="Make Enquiry")
+                .body__booking__popup 
+                    .booking__popup__innner
+                        h3 Make an Enquiry
+                        svg.booking__cancel__menu(width="22px", height="22px")
+                            use(xlink:href="/images/icons/cancel.svg#cancelIcon")
+                        form(action=`/app/${selectedStore.slug}/booking/${selectedStore._id}`, method="post")
+                            label(for="contactNum") Contact Number
+                            input(type="numer" name='contact' required)
+                            label(for="date") Requested Date
+                            input(type="date", name="date" required)
+                            label(for="time") Request Time
+                            input(type="time", name="time" required)
+                            label(for="message") Message
+                            textarea(name="message" required)
+                            button(type="submit") Send Message
         .app__navigation
-            .app__nav__inner.app__selected
-                a(href="/app/explore")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
-                    h3 Explore
-            .app__nav__inner
-                a(href="/app/favourites")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/heart.svg#favouritesIcon")
-                    h3 My Favourites
-            .app__nav__inner
-                a(href="/app/bookings")    
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
-                    h3 My Bookings
+            .app__navigation__container
+                .app__nav__inner.app__selected
+                    a(href="/app/explore")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                        h3 Explore
+                .app__nav__inner
+                    a(href="/app/favourites")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/heart.svg#favouritesIcon")
+                        h3 My Favourites
+                .app__nav__inner
+                    a(href="/app/bookings")    
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
+                        h3 My Bookings
         .app__nav 
             .app__nav__inner
                 svg.cancel__menu(width="30px", height="30px")
                     use(xlink:href="/images/icons/cancel.svg#cancelIcon")
                 .app__nav__header
                     .app__nav__header__img
-                        img(src="/images/hamster.jpg", alt="")
+                        img(src=`/uploads/${user.photo ||'salon.jpg'}`, alt="")
                     .app__nav__header__title
                         h2 #{user.name} 🌴
                         p= user.email
                 .app__nav__body
                     .app__nav__btn
-                        button 
-                            i 
-                                svg(width="25px", height="25px")
-                                    use(xlink:href="/images/icons/upload.svg#uploadIcon") 
-                            |Upload a profile picture
+                        a(href="/user/account")
+                            button 
+                                i 
+                                    svg(width="25px", height="25px")
+                                        use(xlink:href="/images/icons/upload.svg#uploadIcon") 
+                                |Upload a profile picture
                             
 
                     a(href="/user/account")
@@ -114,7 +236,7 @@ block content
                                                     use(xlink:href="/images/icons/shopping-cart.svg#shoppingIcon")
                                         .app__nav__page
                                             p Become a seller today
-                    a(href="/logout")
+                    a(href="/explore/map")
                         .app__nav__section
                             .app__nav__icon
                                 span.menu__icon
@@ -122,6 +244,14 @@ block content
                                         use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
                             .app__nav__page
                                 p Sellers near me
+                    a(href="/explore/top")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/like.svg#likeIcon")
+                            .app__nav__page
+                                p Top Sellers
                     a(href="/logout")
                         .app__nav__section
                             .app__nav__icon
@@ -131,15 +261,13 @@ block content
                             .app__nav__page
                                 p Log out
     .app__blackout
-    script( async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCerHxNdBFQQUJPkJLSyJey7w0Z0WX-w0U&callback=initMap")
     script.
-        console.log();
         function initMap() {
             let location = {
             lat: #{selectedStore.location.coordinates[1]},
             lng: #{selectedStore.location.coordinates[0]}
             };
-            let map = new google.maps.Map(document.getElementById("map"), {
+            let map = new google.maps.Map(document.getElementById("map2"), {
             zoom: 15,
             center: location,
             styles: [
@@ -305,6 +433,7 @@ block content
             });
             let marker = new google.maps.Marker({
             position: location,
+            icon: '/images/location-pin.png',
             map: map
             });
       }

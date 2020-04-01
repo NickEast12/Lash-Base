@@ -5,10 +5,14 @@ block content
         .homepage__main__wrapper 
             .home__inner
                 .home__title
-                    h1.main__title= title
-                    form.reset__form( method="POST")
-                            h3(for="password") New Password
-                            input.login__input.forgot__input(type="password" name="password")
-                            h3(for="password-confirm") Confirm Password
-                            input.login__input.forgot__input(type="password" name="password-confirm")
-                            input.login_btn(type="submit" value="Reset your password ")  
+                    h1.main__title Reset
+                    form( method="POST")
+                        .home__input__wrapper
+                            svg(width="21px", height="21px")
+                                use(xlink:href="/images/icons/padlock.svg#passwordIcon")
+                            input.home__input(type="password" placeholder="New Password" name="password")
+                        .home__input__wrapper
+                            svg(width="21px", height="21px")
+                                use(xlink:href="/images/icons/padlock.svg#passwordIcon") 
+                            input.home__input(type="password" placeholder="Confirm Password" name="password-confirm")
+                        button.button__wrapper.register__button(type="submit" value="Reset") Reset Password 

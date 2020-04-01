@@ -12,15 +12,22 @@ ham.addEventListener('click', () => {
 });
 ham2.addEventListener('click', () => {
     shade.style.display = 'none';
-    page.style.overflow = 'inherit';
+    page.style.overflow = 'auto';
     nav.style.transform = 'translateX(-100%)';
 });
-searchBocBtn.addEventListener('click', () => {
-    if (searchBlock.style.display === 'block') {
-        searchBlock.style.display = 'none'
+let ifSearchExists = () => {
+    if (!searchBocBtn) {
+        return;
     } else {
-        searchBlock.style.display = 'block';
+        searchBocBtn.addEventListener('click', () => {
+            if (searchBlock.style.display === 'block') {
+                searchBlock.style.display = 'none'
+            } else {
+                searchBlock.style.display = 'block';
+            }
+        });
     }
+}
+ifSearchExists();
 
-});
 

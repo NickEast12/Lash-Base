@@ -1,169 +1,217 @@
-.homepage__main__wrapper {
-    background-image: url(/images/salon.jpg);
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    padding-top: 5rem;
-    &::after {
-        content: "";
-        background: black;
+
+@media only screen and (min-width: 320px) {
+    .homepage__main__wrapper {
+        background-image: url(/images/salon.jpg);
+        background-size: cover;
         width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        opacity: .7;
-    }
-    .home__inner {
-        position: relative;
-        width: 65%;
-        margin: 0 auto;
-        padding: 1.85rem;
-        z-index: 3;
-        background: white;
-        // border: lightpink 5px solid;
-        &::before {
-            content: '';
-            width: calc(100% + 1rem);
-            height: calc(100% + 1rem);
-            position: absolute;
-            // background: linear-gradient(50% , rgb(253,183,219), rgb(195,229,242));
-            background-color: #9ab5e1;
-            background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
-            top: calc(0% - 8px);
-            left: calc(0% - 8px);
-            z-index: -2;
-        }
+        height: 100vh;
+        padding-top: 3rem;
         &::after {
-            content: '';
+            content: "";
+            background: black;
             width: 100%;
             height: 100%;
             position: absolute;
-            background: white;
             top: 0;
             left: 0;
             z-index: 1;
+            opacity: .7;
         }
-        .main__title {
-            font-weight: 700;
-            text-align: center;
+        .home__inner {
             position: relative;
-            z-index: 4;
-        }
-        p {
-            text-align: center;
-            margin: .45rem 0;
-            position: relative;
-            z-index: 4;
-        }
-        .forgot__label {
-            color: black;
-            position: relative;
-            z-index: 10;
-            margin: 1rem 0;
-        }
-        .forgot__input {
-            border: rgba(0, 0, 0, .1) 1px solid;
-        }
-        .home__input__wrapper {
-            width: 75%;
-            margin: 1rem auto;
-            position: relative;
-            z-index: 4;
-            .home__input {
-                width: 100%;
-                padding:  .85rem .35em .55rem .35em;
-                font-size: 1rem;
-                margin: .45rem 0;
-                border-radius: 5px;
-                background: white;
-                border: 1px solid rgba(255,255,255,0.2);
-                box-shadow:  
-                -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
-                6px 6px 16px 0 rgba(217, 210, 200, 0.51)
-            }
-        }
-        .home__button__wrapper {
-            width: 75%;
+            width: 85%;
             margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 4;
-            input {
-                width: 100%;
-                padding:  .85rem .35em ;
-                font-size: .85rem;
-                margin: .45rem 0;
-                text-transform: uppercase;
-                border-radius: 5px;
-                font-weight: 600;
-                cursor: pointer;
-                background: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
-                color: whitesmoke;
-                border: 1px solid rgba(255,255,255,0.2);
-                box-shadow:  
-                -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
-                6px 6px 16px 0 rgba(217, 210, 200, 0.51)
-            }
-        }
-        .reset__form {
-            margin-top: 1.5rem;
-            h3 {
-                position: relative;
-                z-index: 5;
-            }
-        }
-
-    }   
-    .home__lower__wrapper {
-        width: 75%;
-        margin: 1.25rem auto 0 auto;
-        text-align: center;
-        position: relative;
-        z-index: 10;
-        color: white;
-        font-size: .8rem;
-        display: grid;
-        grid-template-columns: 1fr;
-        .home__lower__grid {
-            .register__link {
-                color: #f39fdc;
+            padding: 1.85rem;
+            z-index: 3;
+            background: none;
+            .main__title {
                 font-weight: 900;
-            }
-            .back__link {
-                font-size: 1.5rem;
-                font-weight: 600;
+                text-align: center;
                 position: relative;
-                z-index: 5;
+                font-size: 4rem;
+                font-family: 'Kalam', cursive;
+                -webkit-text-fill-color: transparent;
+                -webkit-background-clip: text;
+                background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
             }
-            .forgot__link {
-                .forgot__button {
-                    width: 50%;
-                    margin: 1rem auto;
-                    border: solid #f39fdc 2px; 
-                    padding: .35rem 0;
+            .smaller__title {
+                font-size: 2.75rem;
+            }
+            p {
+                text-align: center;
+                z-index: 4;
+                color: white;
+                letter-spacing: -.1px;
+            }
+            .forgot__label {
+                color: black;
+                position: relative;
+                z-index: 10;
+                margin: 1rem 0;
+            }
+            .forgot__input {
+                border: rgba(0, 0, 0, .1) 1px solid;
+            }
+            .home__input__wrapper {
+                width: 90%;
+                margin: 1rem auto;
+                position: relative;
+                display: flex;
+                padding: .45rem .5rem;
+                justify-content: space-between;
+                align-content: center;
+                align-items: center;
+                border-bottom: rgba(255,255,255,.75) solid 1px;
+                svg {
+                    fill: rgba(255,255,255,.75);
+                }
+                .home__input {
+                    width: 90%;
+                    font-size: 1.1rem;
+                    border: none;
                     background: none;
-                    color: #f39fdc;
-                    font-size: 1rem;
+                    color: rgba(255,255,255,.75);
+                    padding: .35rem 1rem .35rem .5rem;
+                    // box-shadow:  
+                    // -6px -6px 26px 0 rgba(255, 255, 255, 1 ),
+                    // 6px 6px 16px 0 rgba(217, 210, 200, 0.51)
+                }
+                .home__input::placeholder {
+                    color: white;
                 }
             }
-            
-        }
-    }
-    .seller__lower {
-        width: 75%;
-        margin: 1.25rem auto 0 auto;
-        text-align: center;
-        position: relative;
-        z-index: 10;
-        color: white;
-        font-size: .8rem;
-        .seller__link {
-            color: #f39fdc;
-            font-weight: 900;
-        }
-    }
+            .register__button {
+                width: 90%;
+                margin: 0 5%;                
+            }
+            .home__input__wrapper:active, .home__input__wrapper:hover {
+                border-bottom: rgba(255,255,255,1) solid 1px;
+                svg: {
+                    fill: red;
+                }
+                .home__input {
+                    color: white;
+                }
+            }
+            .home__button__wrapper {
+                width: 90%;
+                margin: 0 auto;
+                text-align: center;
+                position: relative;
+                z-index: 4;
+                input {
+                    width: 100%;
+                    padding:  .65rem .35em ;
+                    font-size: .85rem;
+                    margin: .45rem 0;
+                    text-transform: uppercase;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    background: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+                    color: whitesmoke;
+                    border: none;
+                }
+            }
+            .reset__form {
+                margin-top: 1.5rem;
+                h3 {
+                    position: relative;
+                    z-index: 5;
+                }
+            }
+            .home__forgot__wrapper {
+                margin: .55rem 0;
+                p {
+    
+                }
+                span {
+                    color: #f39fdc;
+                    font-weight: 700;
+                }
+            }
+           
+    
+        } 
+        .home__lower__wrapper {
+            position: absolute;
+            z-index: 4;
+            color: white;
+            width: 80%;
+            margin:  0 auto;
+            text-align: center;
+            bottom: calc(0% + 6rem);
+            left: calc(0% + 10%);
+    
+            .home__lower__grid {
+                p {}
+                span{
+                    font-weight: 700;
+                    color: #9ab5e1;
+                }
+            }
+        }  
+      
        
-
+           
+    
+    } 
 } 
+
+@media only screen and (max-width: 320px) {
+    .homepage__main__wrapper {
+        .home__inner {
+            padding-top: .5rem;
+            .main__title {
+                font-size: 3rem;
+            }
+            .smaller__title {
+                font-size: 2rem;
+            }
+            p {
+                font-size: .85rem;
+            }
+            .home__input__wrapper .home__input {
+                font-size: .89rem;
+            }
+        }
+        .home__lower__wrapper {
+            p {
+                font-size: .85rem;
+            }
+        }
+
+    } 
+ }
+
+@media only screen and (min-width: 768px) {
+    .homepage__main__wrapper {
+        .home__inner {
+            width: 45%;
+        }
+    }
+ }
+@media only screen and (min-width: 1280px) {
+    .homepage__main__wrapper {
+        .home__inner {
+            width: 35%;
+            p {
+                width: 75%;
+                margin:  0 auto;
+            }
+            .main__title {
+                font-size: 5rem;
+            }
+            .home__input__wrapper {
+                width: 75%;
+            }
+            .home__button__wrapper {
+                width: 75%;
+            }
+            .register__button {
+                width: 75%;
+                margin: 0 12.5%;                
+            }
+        }
+    }
+ }

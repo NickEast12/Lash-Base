@@ -1,0 +1,11 @@
+mixin pagination(page, pages, count)
+    .pagination
+        .pagination__text
+            p Page #{page} of #{pages} - #{count} total results 
+        .pagination__boxes
+            .pagination__prev
+                if page > 1 
+                    a(href=`/app/explore/page/${page - 1}`) Prev
+            .pagination__next
+                if page < pages
+                    a(href=`/app/explore/page/${parseFloat(page) + 1 }`) Next

@@ -17,9 +17,7 @@ exports.sellerLogin = (req, res) => {
     res.render('sellerLogin', { title: 'Welcome Back' });
 };
 
-exports.back = (req, res) => {
-    res.redirect('/');
-}
+
 
 //! 404 Error handeling
 

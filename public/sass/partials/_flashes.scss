@@ -63,21 +63,24 @@
     &--success {
       // background: linear-gradient(135deg, rgba(210,255,82,1) 0%, rgba(145,232,66,1) 100%);
       // border: solid green 1px;
-      background: rgba(60,179,113, .8);
+      background: rgba(60,179,113, .9);
     }
     &--error {
       // background: linear-gradient(20deg, rgba(255,0,0,1) 0%, rgba(200,0,0,1) 100%);
       // border: solid red 4px;
-      background: rgba(255,69,0, .8)
+      background: rgba(255,69,0, .9)
     }
     &--info {
       // background: linear-gradient(35deg, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
       // border: solid orange 4px;
-      background: rgba(255,140,0, .8)
+      background: rgba(255,140,0, .9)
       ;
     }
     p {
       margin: 0;
+      font-weight: 400;
+      font-size: 1rem;
+      color: white;
     }
   }
   

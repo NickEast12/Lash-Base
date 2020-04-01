@@ -5,14 +5,15 @@ block content
         .homepage__main__wrapper 
             .home__inner
                 .home__title
-                    h1.main__title Password Reset
+                    h1.main__title.smaller__title  Password Reset
                     form(action="/user/forgot/post" method="POST")
-                            h3.forgot__label(for="email" ) Email 
-                            input.login__input.forgot__input(type="email" name="email")
-                            input.login_btn(type="submit" value="Send a Reset")
-            .home__lower__wrapper
-                .home__lower__grid
-                        span.back__link
-                            a(href="/")
-                                br 
-                                | Back   
+                        .home__input__wrapper
+                            svg(width="21px", height="21px")
+                                use(xlink:href="/images/icons/envelope.svg#emailIcon") 
+                            input.home__input(type="email" placeholder="Email" name="email")
+                        button.button__wrapper.register__button(type="submit" value="Register") Send Reset
+                        .home__forgot__wrapper
+                            p Back to 
+                                span
+                                    a(href="/back")
+                                        | Login

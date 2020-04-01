@@ -1,4 +1,3 @@
-@import "partials/login";
 @import "partials/variables";
 @import "partials/universal";
 @import "partials/flashes";
@@ -8,6 +7,15 @@
 @import "partials/createStore";
 @import "partials/storeCards";
 @import "partials/eachStores";
+@import 'partials/map';
+@import 'partials/_noContent';
+@import 'partials/_bookingPopup';
+@import 'partials/_keyframes';
+@import 'partials/_reviewBooking';
+@import 'partials/_reviews';
+@import 'partials/_top';
+@import 'partials/_updateForm';
 
 //hamburges import
-@import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+// @import "node_modules/hamburgers/_sass/hamburgers/hamburgers.scss";
+

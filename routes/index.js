@@ -5,6 +5,7 @@ const mainController = require("../controllers/mainController");
 const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const sellerController = require("../controllers/sellerController");
+const reviewController = require('../controllers/reviewController');
 //? error handeling import
 const { catchErrors } = require("../handlers/errorHandlers");
 
@@ -12,8 +13,6 @@ const { catchErrors } = require("../handlers/errorHandlers");
 //? Redirecting for homepage and first show
 router.get("/", mainController.homepage);
 router.get("/homepage", mainController.homepage);
-//! back routing
-router.get("/back", mainController.back);
 //? Routing for the register form
 router.get("/register", userController.registerForm);
 //! Actually loggin the user in
@@ -24,6 +23,8 @@ router.post(
   //! First Validate the data
   userController.validateRegister,
   //! Register the user
+  sellerController.upload,
+  catchErrors(sellerController.resize),
   catchErrors(userController.register),
   //! Log the user in
   authController.login
@@ -36,9 +37,13 @@ router.get("/logout", authController.logout);
 //? APP - Getting around the app
 router.get("/app/home", catchErrors(userController.explore));
 router.get("/app/explore", catchErrors(userController.explore));
+router.get("/app/explore/page/:page", catchErrors(userController.explore));
 router.get("/app/favourites", catchErrors(userController.favourites));
 router.get("/app/bookings", catchErrors(userController.bookings));
 //? route to getting account need to be loggin in
+
+
+
 
 router.get(
   "/user/account",
@@ -59,7 +64,10 @@ router.post(
 );
 
 //? route to updating account need to be loggin in
-router.post("/userUpdate", catchErrors(authController.userUpdate));
+router.post("/userUpdate",
+  sellerController.upload,
+  sellerController.resize,
+  catchErrors(authController.userUpdate));
 
 
 //! Seller Routing
@@ -67,19 +75,21 @@ router.post("/userUpdate", catchErrors(authController.userUpdate));
 router.get(
   "/app/seller/create",
   authController.isLoggedIn,
-  sellerController.createStore
+  sellerController.createStore,
+
 );
 //?  POST to create the new store
 router.post("/createListing",
   sellerController.upload,
   catchErrors(sellerController.resize),
-  catchErrors(sellerController.createListing));
+  sellerController.createListing
+);
 //? Get request to list the owners store
 router.get("/app/:id/edit",
-  sellerController.editStore);
+  catchErrors(sellerController.editStore));
 //? POST request to update stote
 router.post("/app/:id/edit",
-  sellerController.upload,
+  catchErrors(sellerController.upload),
   catchErrors(sellerController.resize),
   catchErrors(sellerController.updateStore));
 
@@ -87,9 +97,34 @@ router.post("/app/:id/edit",
 
 router.get("/app/explore/:id", catchErrors(sellerController.getStoreBySlug));
 
+router.get('/explore/map', catchErrors(sellerController.map));
+
 //? API end points
 
 router.get('/api/v1/search', catchErrors(sellerController.searchStores));
+router.get('/api/nearby', catchErrors(sellerController.getStoresbyLocation));
+router.post('/api/stores/:id/favourites', catchErrors(sellerController.favourites));
+
+
+
+//? booking  mail
+router.post('/app/:slug/booking/:id',
+  catchErrors(sellerController.addBooking),
+  catchErrors(userController.makeBooking)
+);
+
+//? render booking page 
+router.get('/app/:slug/booking', catchErrors(sellerController.bookingPage));
+
+//? Reviews 
+router.post('/reviews/:id',
+  authController.isLoggedIn,
+  catchErrors(reviewController.addReview)
+)
+
+router.get('/explore/top', catchErrors(reviewController.getTop));
+
+
 
 
 module.exports = router;

@@ -1,0 +1,105 @@
+mixin bookings(store = {})
+    a.store__styling(href=`/app/${store.slug}/booking`)
+     .store__inner_card
+       .store__card__inner
+            .store__info__wrapper
+                .store__info__inner
+                    h2= store.name
+                    h4 Put it in reverse Terryyy
+                    p  #{store.location.address}
+                    .store__lower
+                            //- .address__card
+                            //-     svg(width="22px", height="22px")
+                            //-             use(xlink:href="/images/icons/marker.svg#markerIcon")
+                            //-     h6 #{store.location.address.split(' ').slice(0,3).join(' ')}..
+                            each rating in averageRating
+                                if rating.slug === store.slug
+                                    - let i = Math.round(rating.averageRating * 10 / 10) 
+                                    if i <= 1 || null
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                    if i === 2
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                    if i === 3 
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                
+                                    if i === 4 
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                    if i === 5
+                                        .each__reviews
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid.reviews--selected 
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                                            .each__reviews__grid
+                                                svg(width="20px", height="20px")
+                                                    use(xlink:href="/images/icons/star.svg#starIcon")
+                                
+                                

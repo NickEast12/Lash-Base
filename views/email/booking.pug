@@ -1,0 +1,25 @@
+extends email-layout
+
+block content
+  h2 Lashbase | Booking Enquiry 
+  p Hello. You have a new enquiry from 
+    strong
+    | #{bookingForm.name} 
+  p Contact Information
+  ul 
+    li 
+        strong Contact Number:  
+        | #{  bookingForm.no}
+    li 
+        strong Message:  
+        | #{  bookingForm.message}
+    li 
+        strong Requested Time:  
+        | #{  bookingForm.time}
+    li 
+        strong Requested Date:  
+        | #{  bookingForm.date}
+  
+  
+  
+  

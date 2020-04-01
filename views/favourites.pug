@@ -1,5 +1,7 @@
 extends layout 
 
+include mixins/_favstores
+
 block content
 
 
@@ -7,7 +9,7 @@ block content
         .app__header
             .header__wrapper
                 .header__icon__box.menu__button
-                    img(src="/images/hamster.jpg", alt="")
+                    img(src=`/uploads/${user.photo ||'salon.jpg'}`, alt="")
                 .header__title__box 
                     a(href="/app/explore")
                         h1= title
@@ -18,43 +20,59 @@ block content
                 input(type="text" name="search" placeholder="Find a lash tech..")
                 .search__results
         .app__body
-            
+            if user.favourites === undefined || user.favourites == 0
+                .no__favs
+                    .no__favs__icon
+                        svg(width="40px", height="40px")
+                            use(xlink:href="/images/icons/coloredheart.svg#colouredHeart")
+                    .no__favs__content
+                        h2 Your personal list of favourites 
+                        h3 Found a place you really like?
+                        h4 Add it here by tapping the heart icon
+                    .no__favs__button
+                        a(href="/app/explore")
+                            input(type="button", value="Find a seller")
+            else 
+                each store in selectedStores
+                    +favCard(store)
         .app__navigation
-            .app__nav__inner
-                a(href="/app/explore")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
-                    h3 Explore
-            .app__nav__inner.app__selected
-                a(href="/app/favourites")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/heart.svg#favouritesIcon")
-                    h3 My Favourites
-            .app__nav__inner
-                a(href="/app/bookings")    
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
-                    h3 My Bookings
+            .app__navigation__container
+                .app__nav__inner
+                    a(href="/app/explore")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                        h3 Explore
+                .app__nav__inner.app__selected
+                    a(href="/app/favourites")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/heart.svg#favouritesIcon")
+                        h3 My Favourites
+                .app__nav__inner
+                    a(href="/app/bookings")    
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
+                        h3 My Bookings
         .app__nav 
             .app__nav__inner
                 svg.cancel__menu(width="30px", height="30px")
                     use(xlink:href="/images/icons/cancel.svg#cancelIcon")
                 .app__nav__header
                     .app__nav__header__img
-                        img(src="/images/hamster.jpg", alt="")
+                        img(src=`/uploads/${user.photo ||'salon.jpg'}`, alt="")
                     .app__nav__header__title
                         h2 #{user.name} 🌴
                         p= user.email
                 .app__nav__body
                     .app__nav__btn
-                        button 
-                            i 
-                                svg(width="25px", height="25px")
-                                    use(xlink:href="/images/icons/upload.svg#uploadIcon") 
-                            |Upload a profile picture
+                        a(href="/user/account")
+                            button 
+                                i 
+                                    svg(width="25px", height="25px")
+                                        use(xlink:href="/images/icons/upload.svg#uploadIcon") 
+                                |Upload a profile picture
                             
 
                     a(href="/user/account")
@@ -86,7 +104,7 @@ block content
                                                     use(xlink:href="/images/icons/shopping-cart.svg#shoppingIcon")
                                         .app__nav__page
                                             p Become a seller today
-                    a(href="/logout")
+                    a(href="/explore/map")
                         .app__nav__section
                             .app__nav__icon
                                 span.menu__icon
@@ -94,6 +112,14 @@ block content
                                         use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
                             .app__nav__page
                                 p Sellers near me
+                    a(href="/explore/top")
+                        .app__nav__section
+                            .app__nav__icon
+                                span.menu__icon
+                                    svg(width="24px", height="24px")
+                                        use(xlink:href="/images/icons/like.svg#likeIcon")
+                            .app__nav__page
+                                p Top Sellers
                     a(href="/logout")
                         .app__nav__section
                             .app__nav__icon

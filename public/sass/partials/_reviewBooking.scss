@@ -1,0 +1,80 @@
+.booking__page__wrapper {
+    margin-top: 5rem;
+    margin-bottom: 6rem;
+    &__title {
+        width: 85%;
+        margin:  0 auto;
+        h2 {
+            font-weight: 300;
+        .span__booking {
+                font-weight: 600;
+        }
+        }
+    }
+    .reviewer {
+        width: 90%;
+        margin: 0 auto;
+        textarea {
+            width: 100%;
+            height: 10rem;
+            resize: off;
+            font-size: 1.1rem;
+            padding: .25rem;
+        }
+        .reviewer__meta {
+            display: flex;
+            height: 2rem;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+            button {
+                background-image: linear-gradient(315deg, #9ab5e1 0%, #f39fdc 74%);
+                color: white;
+                font-weight: 700;
+                height: 100%;
+                width: 60%;
+
+            }
+            .reviewer__stars {
+                width: 100%;
+                label {
+                    margin-right: 8px;
+                }
+            }
+        }
+        .reviewer__stars {
+            display: flex;
+            justify-content: center;
+            input {
+                display: none;
+            }
+            input:checked {
+                & ~ label {
+                        svg  {
+                            fill: #f39fdc;
+                        }
+                }
+            }
+            label {
+                svg {
+                    fill: rgba(0,0,0,.45);
+                    
+                }
+            }
+            label[for='star5'] { order: 5;}
+            label[for='star4'] { order: 4;}
+            label[for='star3'] { order: 3;}
+            label[for='star2'] { order: 2;}
+            label[for='star1'] { order: 1;}
+            // &:hover, &:hover ~ label {
+            //     fill: yellow;
+            //     color: yellowgreen;
+            //     svg {
+            //         fill: aqua;
+            //     }
+            // }
+        }
+        
+        
+    }
+}

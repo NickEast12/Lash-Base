@@ -7,11 +7,25 @@ block content
             .home__title
                 h1.main__title= title
                 form(action="/register", method="POST")
-                    input.login__input(type="text" placeholder="Name" name="name")
-                    input.login__input(type="email" placeholder="Email" name="email")
-                    input.login__input(type="password" placeholder="Password" name="password")
-                    input.login__input(type="password" placeholder="Confirm password" name="password-confirm")
-                    button.login_btn(type="submit" value="Register") Register
-        .back__wrapper
-            a(href="/back")
-                h4 Back
+                    .home__input__wrapper
+                        svg(width="21px", height="21px")
+                            use(xlink:href="/images/icons/avatar.svg#nameIcon") 
+                        input.home__input(type="text" placeholder="Name" name="name")
+                    .home__input__wrapper
+                        svg(width="21px", height="21px")
+                            use(xlink:href="/images/icons/envelope.svg#emailIcon") 
+                        input.home__input(type="email" placeholder="Email" name="email")
+                    .home__input__wrapper
+                        svg(width="21px", height="21px")
+                            use(xlink:href="/images/icons/padlock.svg#passwordIcon") 
+                        input.home__input(type="password" placeholder="Password" name="password")
+                    .home__input__wrapper
+                        svg(width="21px", height="21px")
+                            use(xlink:href="/images/icons/padlock.svg#passwordIcon") 
+                        input.home__input(type="password" placeholder="Confirm password" name="password-confirm")
+                    button.button__wrapper.register__button(type="submit" value="Register") Register
+                    .home__forgot__wrapper
+                        p Back to 
+                            span
+                                a(href="/back")
+                                    | Login

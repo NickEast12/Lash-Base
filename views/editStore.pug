@@ -6,23 +6,48 @@ block content
         .app__header
             .header__wrapper
                 h1= title
-                h2= store
-                .setting__icon_wrapper
+        .app__body
+            .update__form__wrapper
+                form(action=`/app/${store._id || ''}/edit` method="post")
+                    label.update__form__wrapper__label(for="name") Company name
+                    input.input__style(type="text", name="name" value= store.name)
+                    label.update__form__wrapper__label(for="description")  Description
+                    textarea(name="description")=store.description
+                    label.update__form__wrapper__label(for="address") Address
+                    input.input__style(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
+                    label.update__form__wrapper__label(for="lng") Address Lng
+                    input.input__style(type="text" id="lng" name="location[coordinates][0]" value=(store.location && store.location.coordinates[0]) required)
+                    label.update__form__wrapper__label(for="lat") Address Lat
+                    input.input__style(type="text" id="lat" name="location[coordinates][1]" value=(store.location && store.location.coordinates[1]) required)
+                    button.update__form__wrapper__btn(type="submit", value="Update Listing") Update Listing
+        .app__navigation
+            .app__navigation__container
+                .app__nav__inner.app__selected
                     a(href="/app/explore")
-                        img.setting__icon(src="/images/icons/house.svg", alt="searching")
-            .update__account__wrapper
-                    .create__store__wrapper
-                        form(action=`/app/${store._id || ''}/edit` method="post")
-                            label(for="name") Company name
-                            input.input__style(type="text", name="name" value= store.name)
-                            label(for="description")  Description
-                            textarea(name="description")=store.description
-                            //- label(for="name") Price Range
-                            //- input.input__style(type="text", name="priceRange")
-                            label(for="address") Address
-                            input.input__style(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
-                            label(for="lng") Address Lng
-                            input.input__style(type="text" id="lng" name="location[coordinates][0]" value=(store.location && store.location.coordinates[0]) required)
-                            label(for="lat") Address Lat
-                            input.input__style(type="text" id="lat" name="location[coordinates][1]" value=(store.location && store.location.coordinates[1]) required)
-                            input.button__wrapper.create__button(type="submit", value="Update Listing")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                        h3 Explore
+                .app__nav__inner
+                    a(href="/app/favourites")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/heart.svg#favouritesIcon")
+                        h3 My Favourites
+                .app__nav__inner
+                    a(href="/app/bookings")    
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
+                        h3 My Bookings
+        .app__blackout
+
+
+
+                //-      .update__form__wrapper
+                //- form(action="/userUpdate" method="POST" enctype="multipart/form-data")
+                //-     input(type="text" placeholder="Name" name="name" value=user.name)
+                //-     input(type="email" placeholder="Email" name="email" value=user.email)
+                //-     label(for="photo") Cover photo 
+                //-     input.update__form__wrapper__photo(type="file" name="photo" id="photo" accept="image/gif, image/png/ , image/jpeg , image/jpg")
+                //-     button(type="submit" value="Update") Update

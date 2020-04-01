@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Store = mongoose.model("Store");
+const User = mongoose.model('User');
 const multer = require("multer");
 const jimp = require("jimp");
 const uuid = require("uuid");
@@ -22,7 +23,7 @@ exports.upload = multer(multerOptions).single("photo");
 exports.resize = async (req, res, next) => {
   //? check to see if there is no new file to resize
   if (!req.file) {
-    next(); //? skip to next middle ware
+    next(); //? skip to next middleware
     return;
   }
   const extention = req.file.mimetype.split("/")[1];
@@ -40,16 +41,17 @@ exports.resize = async (req, res, next) => {
 
 
 exports.createStore = (req, res) => {
-  const stores = Store.find();
-  res.render("createStore", { title: "Create a listing", stores });
+  res.render("createStore", { title: "Create a listing" });
 };
 
 exports.createListing = async (req, res) => {
   req.body.author = req.user._id;
-  const store = await new Store(req.body).save();
-  req.flash("success", `Successfully created ${store.name}`);
-  res.redirect("/app/explore");
+  const store = await (new Store(req.body)).save();
+  req.flash('success', `Successfully Created ${store.name}. Care to leave a review?`);
+  res.redirect(`/store/${store.slug}`);
+
 };
+
 
 exports.editStore = async (req, res) => {
   //? first we need to find the store in question
@@ -76,9 +78,10 @@ exports.updateStore = async (req, res) => {
 exports.getStoreBySlug = async (req, res) => {
   const stores = await Store.find();
   const selectedStore = await Store.findOne({ slug: req.params.id }).populate(
-    "author"
+    "author reviews"
   );
-  res.render("eachStore", { stores, selectedStore, title: selectedStore.name });
+  const averageRating = await Store.reviewsAverage();
+  res.render("eachStore", { stores, selectedStore, title: selectedStore.name, averageRating });
 };
 
 exports.searchStores = async (req, res) => {
@@ -94,3 +97,55 @@ exports.searchStores = async (req, res) => {
     })
   res.json(stores);
 }
+
+exports.getStoresbyLocation = async (req, res) => {
+  const coordinates = [req.query.lng, req.query.lat].map(parseFloat);
+  const q = {
+    location: {
+      $near: {
+        $geometry: {
+          type: 'Points',
+          coordinates
+        },
+        $maxDistance: 100000
+      }
+    }
+  }
+  const stores = await Store.find(q).select('slug name description location photo').limit(10);
+  res.json(stores);
+}
+
+exports.map = async (req, res) => {
+  const stores = await Store.find();
+  res.render('map', { title: 'Near Me', stores });
+}
+
+exports.favourites = async (req, res) => {
+  const favourites = req.user.favourites.map(obj => obj.toString());
+  const operator = favourites.includes(req.params.id) ? '$pull' : '$addToSet';
+  const user = await User.findByIdAndUpdate(req.user._id,
+    { [operator]: { favourites: req.params.id } },
+    { new: true }
+  );
+  res.json(user);
+};
+
+exports.addBooking = async (req, res, next) => {
+  const bookings = req.user.bookings.map(obj => obj.toString());
+  // res.json(req.user.bookings);
+  const operator = bookings.includes(req.params.id) ? '$pull' : '$addToSet';
+  const user = await User.findByIdAndUpdate(req.user._id,
+    { [operator]: { bookings: req.params.id } },
+    { new: true }
+  );
+  next();
+};
+exports.bookingPage = async (req, res) => {
+  const stores = await Store.find();
+  const averageRating = await Store.reviewsAverage();
+  const selectedStore = await Store.findOne({ slug: req.params.slug }).populate(
+    "author"
+  );
+  res.render('bookingpage', { title: 'Bookings', stores, selectedStore, averageRating });
+}
+

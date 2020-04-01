@@ -5,32 +5,35 @@ block content
     .app__wrapper
         .app__header
             .header__wrapper
-                h1 Update Account
+                h1.update__title Update Account
         .app__body
-            .update__account__wrappper
-                form(action="/userUpdate" method="POST")
-                    input.login__input(type="text" placeholder="Name" name="name" value=user.name)
-                    input.login__input(type="email" placeholder="Email" name="email" value=user.email)
-                    button.login_btn(type="submit" value="Update") Update
+            .update__form__wrapper
+                form(action="/userUpdate" method="POST" enctype="multipart/form-data")
+                    input(type="text" placeholder="Name" name="name" value=user.name)
+                    input(type="email" placeholder="Email" name="email" value=user.email)
+                    label.update__form__wrapper__label(for="photo") Cover photo 
+                    input.update__form__wrapper__photo(type="file" name="photo" id="photo" accept="image/gif, image/png/ , image/jpeg , image/jpg")
+                    button.update__form__wrapper__btn(type="submit" value="Update") Update
         .app__navigation
-            .app__nav__inner.app__selected
-                a(href="/app/explore")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
-                    h3 Explore
-            .app__nav__inner
-                a(href="/app/favourites")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/heart.svg#favouritesIcon")
-                    h3 My Favourites
-            .app__nav__inner
-                a(href="/app/bookings")    
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
-                    h3 My Bookings
+            .app__navigation__container
+                .app__nav__inner.app__selected
+                    a(href="/app/explore")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                        h3 Explore
+                .app__nav__inner
+                    a(href="/app/favourites")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/heart.svg#favouritesIcon")
+                        h3 My Favourites
+                .app__nav__inner
+                    a(href="/app/bookings")    
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
+                        h3 My Bookings
     .app__blackout
 
 

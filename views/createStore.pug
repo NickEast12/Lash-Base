@@ -3,25 +3,23 @@ extends layout
 block content
 
     .app__wrapper
+        .app__header
+            .header__wrapper
+                h1.update__title Become a seller
         .app__body
-           .create__store__wrapper
-                h2= title
+           .update__form__wrapper.form__reset
                 form(action="/createListing", method="POST" enctype="multipart/form-data")
                     label(for="name") Company name
                     input.input__style(type="text", name="name")
-                    label(for="name")  Description
+                    label(for="description")  Description
                     textarea(name="description")
                     label(for="photo") Photo 
                     input(type="file" name="photo" id="photo" accept="image/gif, image/png/ , image/jpeg , image/jpg")
-                    //- label(for="userType") Which one describes you best?
-                    //- - const userTypes = [ 'Eyelash Technican', 'Nail Technician', 'Cunt'];
-                    //- select.input__style
-                    //-     each userT in userTypes
-                    //-         option.option(value=userT name="userType" selected=(userTypes.includes(userT)))=userT
-                    
-
-                
-                    
+                    label(for="menu") What services do you offer?
+                    input.input__style(type="text" name="menu[treatment][0]" placeholder="Eyelash Extentions.." required)
+                    input.input__style(type="number" name="menu[price][0]" placeholder="price" required)
+                    input.input__style(type="text" name="menu[treatment][1]" required)
+                    input.input__style(type="number" name="menu[price][1]" placeholder="price" required)
                     label(for="address") Address
                     input.input__style(type="text", name="location[address]" id='address')
                     label.input--display--none(for="address") Lng
@@ -30,24 +28,25 @@ block content
                     input.input__style.input--display--none(type="text", id='lat' name="location[coordinates][1]" required)
                     input.button__wrapper.create__button(type="submit", value="Create a listing")
         .app__navigation
-            .app__nav__inner.app__selected
-                a(href="/app/explore")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
-                    h3 Explore
-            .app__nav__inner
-                a(href="/app/favourites")
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/heart.svg#favouritesIcon")
-                    h3 My Favourites
-            .app__nav__inner
-                a(href="/app/bookings")    
-                    .app__nav__img__wrp
-                        svg(width="20px", height="20px")
-                            use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
-                    h3 My Bookings
+            .app__navigation__container
+                .app__nav__inner.app__selected
+                    a(href="/app/explore")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/magnifying-glass.svg#magnifyingIcon")
+                        h3 Explore
+                .app__nav__inner
+                    a(href="/app/favourites")
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/heart.svg#favouritesIcon")
+                        h3 My Favourites
+                .app__nav__inner
+                    a(href="/app/bookings")    
+                        .app__nav__img__wrp
+                            svg(width="20px", height="20px")
+                                use(xlink:href="/images/icons/shopping-bag.svg#bookingsIcon")
+                        h3 My Bookings
        
     .app__blackout
     script(src=`https://maps.googleapis.com/maps/api/js?key=AIzaSyDS0xu6kisZjBJyi5FEr5cf6EtoaZPYTD8&libraries=places`)

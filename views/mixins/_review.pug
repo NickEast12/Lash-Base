@@ -1,0 +1,96 @@
+mixin review(review)
+    .review__header
+        .review__author
+            img(src=`/uploads/${review.author.photo || "salon.jpg"}`, alt="")
+            p= review.author.name
+        .review__stars(title= `Rated ${review.rating} out of 5 stars`)
+            if review.rating === 1
+                .each__reviews
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+            if review.rating === 2
+                .each__reviews
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+            if review.rating === 3
+                .each__reviews
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+            if review.rating === 4
+                .each__reviews
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star.svg#starIcon")
+            if review.rating === 5
+                 .each__reviews
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+                    .each__reviews__grid.reviews--selected 
+                        svg(width="20px", height="20px")
+                            use(xlink:href="/images/icons/star-full.svg#fullStarIcon")
+    .review__body
+        .review__body__inner
+            p= review.text
+            time.review__time(datetime=review.created)= h.moment(review.created).fromNow()
+

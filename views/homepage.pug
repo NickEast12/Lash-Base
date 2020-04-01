@@ -9,20 +9,24 @@ block content
                 p Lashbase is the only platform on the market that allows freelance lash technicians access to a wide range of clinets in their area
             form(action="/login", method="post")
                 .home__input__wrapper
-                    label(for="Username") Username
-                    input.home__input(type="text", value="" name="email")
+                    svg(width="21px", height="21px")
+                        use(xlink:href="/images/icons/envelope.svg#emailIcon") 
+                    input.home__input(type="text", value="" name="email" placeholder="Username")
                 .home__input__wrapper
-                    label(for="Password") Password
-                    input.home__input(type="password", value="" name="password")
+                    svg(width="21px", height="21px")
+                        use(xlink:href="/images/icons/padlock.svg#passwordIcon") 
+                    input.home__input(type="password", value="" name="password" placeholder="Password")
                 .home__button__wrapper
                     input(type="submit", value="Login")
+                .home__forgot__wrapper
+                    p Forgot password? 
+                        span
+                            a(href="/user/forgot")
+                                | Recover here
         .home__lower__wrapper
             .home__lower__grid
-                h2 Don't have an account? 
+                p Don't have an account? 
                     span.register__link
                         a(href="/register")
-                            br 
-                            | Register   
-                a.forgot__link(href="/user/forgot")
-                    button.forgot__button(type="button", value="Forgot Password") Forgot Password
-                    
+                            | Sign up here   
+                

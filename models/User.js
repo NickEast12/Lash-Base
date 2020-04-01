@@ -20,8 +20,16 @@ const userSchema = new Schema({
         required: 'Please supply a name',
         trim: true
     },
+    photo: String,
     resetPasswordToken: String,
-    resetPasswordExpires: Date
+    resetPasswordExpires: Date,
+    bookings: [
+        { type: mongoose.Schema.ObjectId, ref: 'Stores' }
+    ],
+    favourites: [
+        { type: mongoose.Schema.ObjectId, ref: 'Store' }
+    ],
+
 });
 userSchema.plugin(passportLocalMongoose, {
     usernameField: "email"

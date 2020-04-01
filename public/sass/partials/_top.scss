@@ -1,0 +1,53 @@
+@import '_variables.scss';
+
+
+@media only screen and (min-width: 320px) {
+    .top__stores {
+        margin: 6rem 0 8rem 0 ;
+        h1 {
+            text-align: center;
+        }
+        &__table {
+            margin: .75rem auto;
+            width: 95%;
+            thead {
+                background: $gradient;
+                td {
+                    text-align: center;
+                    padding: 3px; 
+                    font-size: .9rem;        
+                }
+            }
+            tbody {
+                tr:nth-child(even) {
+                    background: white;
+                }
+                img {
+                    width: 60px;
+                    height: 60px;
+                    // border-radius: 50px;
+                }
+                td {
+                    text-align: center;
+                    padding: 10px 0;
+                }
+            }
+           
+        }
+        
+    }
+}
+
+
+@media only screen and (min-width: 414px) {
+    .top__stores {
+        &__table {
+            tbody {
+                img {
+                    width: 90px;
+                    height: 90px;
+                }
+            }
+        }
+    }
+}
