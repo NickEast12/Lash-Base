@@ -42,7 +42,7 @@ router.get("/app/favourites", catchErrors(userController.favourites));
 router.get("/app/bookings", catchErrors(userController.bookings));
 //? route to getting account need to be loggin in
 
-
+router.get('/back', mainController.back);
 
 
 router.get(
