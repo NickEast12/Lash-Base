@@ -1011,7 +1011,7 @@ button {
 
 .update__form__wrapper {
   width: 90%;
-  margin: 7.5rem auto 0 auto; }
+  margin: 7.5rem auto 3rem auto; }
   .update__form__wrapper input {
     display: block;
     width: 100%;
