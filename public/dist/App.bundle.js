@@ -1005,6 +1005,7 @@ var nav = document.querySelector('.app__nav ');
 var searchBocBtn = document.querySelector('.search--active');
 var searchBlock = document.querySelector('.header__search');
 ham.addEventListener('click', function () {
+    console.log('clicked');
     shade.style.display = 'block';
     page.style.overflow = 'hidden';
     nav.style.transform = 'translateX(0%)';
@@ -2672,13 +2673,15 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var bookingForm = document.querySelector('.body__booking__popup');
+var bookingButton = document.querySelector('.booking__button');
 var activationButton = document.querySelector('.booking__button');
 var closeMenu = document.querySelector('.booking__cancel__menu');
 var shade = document.querySelector('.app__blackout');
 var page = document.querySelector('.app__wrapper');
 
 function booking() {
-    if (!bookingForm) {
+    if (!bookingButton) {
+        console.log('booking button not found');
         return;
     } else {
         activationButton.addEventListener('click', function () {

@@ -1,11 +1,13 @@
 const bookingForm = document.querySelector('.body__booking__popup');
+const bookingButton = document.querySelector('.booking__button');
 const activationButton = document.querySelector('.booking__button');
 const closeMenu = document.querySelector('.booking__cancel__menu');
 const shade = document.querySelector('.app__blackout');
 const page = document.querySelector('.app__wrapper');
 
 function booking() {
-    if (!bookingForm) {
+    if (!bookingButton) {
+        console.log('booking button not found');
         return;
     } else {
         activationButton.addEventListener('click', () => {

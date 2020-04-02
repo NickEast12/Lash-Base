@@ -6,6 +6,7 @@ const nav = document.querySelector('.app__nav ');
 const searchBocBtn = document.querySelector('.search--active');
 const searchBlock = document.querySelector('.header__search');
 ham.addEventListener('click', () => {
+    console.log('clicked');
     shade.style.display = 'block';
     page.style.overflow = 'hidden';
     nav.style.transform = 'translateX(0%)';
