@@ -731,7 +731,8 @@ button {
     border-radius: 5px; }
     .app__map__page .other__map .popup img {
       width: 100%;
-      height: 5rem; }
+      height: 6rem;
+      width: 100%; }
     .app__map__page .other__map .popup h4 {
       text-align: center;
       font-weight: 500;
