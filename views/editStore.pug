@@ -8,11 +8,13 @@ block content
                 h1= title
         .app__body
             .update__form__wrapper
-                form(action=`/app/${store._id || ''}/edit` method="post")
+                form(action=`/app/${store._id || ''}/edit` method="POST" enctype="multipart/form-data")
                     label.update__form__wrapper__label(for="name") Company name
                     input.input__style(type="text", name="name" value= store.name)
                     label.update__form__wrapper__label(for="description")  Description
                     textarea(name="description")=store.description
+                    label(for="photo") Photo 
+                    input(type="file" name="photo" id="photo" accept="image/gif, image/png/ , image/jpeg , image/jpg")
                     label.update__form__wrapper__label(for="address") Address
                     input.input__style(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
                     label.update__form__wrapper__label(for="lng") Address Lng
