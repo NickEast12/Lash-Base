@@ -21,10 +21,11 @@ router.get("/login", authController.login);
 router.post(
   "/register",
   //! First Validate the data
-  userController.validateRegister,
+
   //! Register the user
   sellerController.upload,
   catchErrors(sellerController.resize),
+  userController.validateRegister,
   catchErrors(userController.register),
   //! Log the user in
   authController.login
@@ -82,14 +83,14 @@ router.get(
 router.post("/createListing",
   sellerController.upload,
   catchErrors(sellerController.resize),
-  sellerController.createListing
+  catchErrors(sellerController.createListing)
 );
 //? Get request to list the owners store
 router.get("/app/:id/edit",
   catchErrors(sellerController.editStore));
 //? POST request to update stote
 router.post("/app/:id/edit",
-  catchErrors(sellerController.upload),
+  sellerController.upload,
   catchErrors(sellerController.resize),
   catchErrors(sellerController.updateStore));
 

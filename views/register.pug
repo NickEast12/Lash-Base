@@ -6,7 +6,7 @@ block content
         .home__inner
             .home__title
                 h1.main__title= title
-                form(action="/register", method="POST")
+                form(action="/register", method="POST" enctype="multipart/form-data")
                     .home__input__wrapper
                         svg(width="21px", height="21px")
                             use(xlink:href="/images/icons/avatar.svg#nameIcon") 
@@ -15,6 +15,10 @@ block content
                         svg(width="21px", height="21px")
                             use(xlink:href="/images/icons/envelope.svg#emailIcon") 
                         input.home__input(type="email" placeholder="Email" name="email")
+                    .home__input__wrapper
+                        svg(width="21px", height="21px")
+                            use(xlink:href="/images/icons/envelope.svg#emailIcon") 
+                        input.home__input(type="file" name="photo" id="photo" accept="image/gif, image/png/ , image/jpeg , image/jpg")
                     .home__input__wrapper
                         svg(width="21px", height="21px")
                             use(xlink:href="/images/icons/padlock.svg#passwordIcon") 
