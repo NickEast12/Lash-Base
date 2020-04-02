@@ -16,10 +16,12 @@ block content
                     label(for="photo") Photo 
                     input(type="file" name="photo" id="photo" accept="image/gif, image/png/ , image/jpeg , image/jpg")
                     label(for="menu") What services do you offer?
-                    input.input__style(type="text" name="menu[treatment][0]" placeholder="Eyelash Extentions.." required)
-                    input.input__style(type="number" name="menu[price][0]" placeholder="price" required)
-                    input.input__style(type="text" name="menu[treatment][1]" required)
-                    input.input__style(type="number" name="menu[price][1]" placeholder="price" required)
+                    .input__gird__seller
+                        input.input__style(type="text" name="menu[treatment][0]" placeholder="Eyelash Extentions.." required)
+                        input.input__style(type="number" name="menu[price][0]" placeholder="Price" required)
+                    .input__gird__seller
+                        input.input__style(type="text" name="menu[treatment][1]"  placeholder="Other..." required)
+                        input.input__style(type="number" name="menu[price][1]" placeholder="Price" required)
                     label(for="address") Address
                     input.input__style(type="text", name="location[address]" id='address')
                     label.input--display--none(for="address") Lng

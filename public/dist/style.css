@@ -1034,6 +1034,8 @@ button {
     margin-top: 1.15rem;
     color: whitesmoke;
     font-weight: 500; }
+  .update__form__wrapper .create__button {
+    margin-top: 1.5rem; }
   .update__form__wrapper textarea {
     width: 100%;
     display: block;
@@ -1041,5 +1043,17 @@ button {
 
 .form__reset {
   margin: 5rem auto 9rem auto; }
+
+.input__gird__seller {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 30%;
+      grid-template-columns: 1fr 30%;
+  grid-gap: 10px; }
+
+.input--display--none {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
 
 /*# sourceMappingURL=style.css.map*/

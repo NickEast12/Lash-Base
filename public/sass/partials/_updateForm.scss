@@ -33,6 +33,9 @@
         color: whitesmoke;
         font-weight: 500;
     }
+    .create__button {
+        margin-top: 1.5rem;
+    }
     textarea {
         width: 100%;
         display: block;
@@ -42,3 +45,14 @@
 .form__reset {
     margin: 5rem auto 9rem auto;
 }
+.input__gird__seller {
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-gap: 10px;
+}
+.input--display--none {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
