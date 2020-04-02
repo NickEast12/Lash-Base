@@ -150,8 +150,11 @@ block content
                                 +review(review)
                 else 
                     h2.no__reviews no reviews
-                .body__contact__button 
-                    input.button__wrapper.booking__button(type="button", value="Make Enquiry")
+                if selectedStore.author.id == user._id
+                    
+                else 
+                    .body__contact__button 
+                        input.button__wrapper.booking__button(type="button", value="Make Enquiry")
                 .body__booking__popup 
                     .booking__popup__innner
                         h3 Make an Enquiry
