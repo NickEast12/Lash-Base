@@ -1,7 +1,7 @@
 mixin review(review)
     .review__header
         .review__author
-            img(src=`/uploads/${review.author.photo || "salon.jpg"}`, alt="")
+            img(src=`https://res.cloudinary.com/dl774tcx9/image/upload/a_1/cover/${review.author.photo || '2020-04-06T13:16:15.638Z'}.jpg`)
             p= review.author.name
         .review__stars(title= `Rated ${review.rating} out of 5 stars`)
             if review.rating === 1
