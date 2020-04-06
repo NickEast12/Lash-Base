@@ -42,6 +42,7 @@ exports.validateRegister = (req, res, next) => {
   next(); //! pass off to register to create the user
 };
 exports.register = async (req, res, next) => {
+  req.body.photo = '2020-04-06T16:31:09.294Z';
   const user = new User({ email: req.body.email, name: req.body.name, photo: req.body.photo });
   const registerWithPromise = promisify(User.register, User);
   await registerWithPromise(user, req.body.password);

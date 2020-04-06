@@ -3,9 +3,16 @@
 .update__title {
     font-weight: 200;
 }
+.minor__header {
+    font-weight: 200;
+    font-size: 1.5rem;
+}
 .update__form__wrapper {
+    h1 {
+        font-weight: 100;
+    }
     width: 90%;
-    margin: 7.5rem auto 3rem auto;
+    margin: 4.5rem auto 3rem auto;
     input {
         display: block;
         width: 100%;

@@ -5,7 +5,7 @@ block content
     .app__wrapper
         .app__header
             .header__wrapper
-                h1= title
+                h1.minor__header= title
         .app__body
             .update__form__wrapper
                 form(action=`/app/${store._id || ''}/edit` method="POST" enctype="multipart/form-data")

@@ -3,7 +3,7 @@ mixin storeCard(store = {})
      .store__inner_card
        .store__card__inner
             .store__img
-                img(src=`/uploads/${store.photo || 'salon.jpg'}`, alt="")
+                img(src=`https://res.cloudinary.com/dl774tcx9/image/upload/pictures/${store.photo || '2020-04-06T13:16:15.638Z'}.jpg`)
             .store__info__wrapper
                 .store__info__inner
                     h2= store.name

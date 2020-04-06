@@ -114,7 +114,8 @@ button {
       position: fixed;
       top: 0;
       z-index: 5;
-      background: white; }
+      background: white;
+      box-shadow: 2px 5px 20px -2px rgba(0, 0, 0, 0.15); }
       .app__wrapper .app__header .header__wrapper {
         display: -ms-flexbox;
         display: flex;
@@ -1009,9 +1010,15 @@ button {
 .update__title {
   font-weight: 200; }
 
+.minor__header {
+  font-weight: 200;
+  font-size: 1.5rem; }
+
 .update__form__wrapper {
   width: 90%;
-  margin: 7.5rem auto 3rem auto; }
+  margin: 4.5rem auto 3rem auto; }
+  .update__form__wrapper h1 {
+    font-weight: 100; }
   .update__form__wrapper input {
     display: block;
     width: 100%;

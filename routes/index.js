@@ -6,10 +6,16 @@ const authController = require("../controllers/authController");
 const userController = require("../controllers/userController");
 const sellerController = require("../controllers/sellerController");
 const reviewController = require('../controllers/reviewController');
+const photoController = require('../controllers/photoController');
 //? error handeling import
 const { catchErrors } = require("../handlers/errorHandlers");
 
 //? Start of routes
+
+
+router.post('/cloudUpdate', photoController.cloudUpload);
+
+
 //? Redirecting for homepage and first show
 router.get("/", mainController.homepage);
 router.get("/homepage", mainController.homepage);
@@ -23,8 +29,6 @@ router.post(
   //! First Validate the data
 
   //! Register the user
-  sellerController.upload,
-  catchErrors(sellerController.resize),
   userController.validateRegister,
   catchErrors(userController.register),
   //! Log the user in
@@ -44,6 +48,7 @@ router.get("/app/bookings", catchErrors(userController.bookings));
 //? route to getting account need to be loggin in
 
 router.get('/back', mainController.back);
+
 
 
 router.get(
@@ -66,9 +71,9 @@ router.post(
 
 //? route to updating account need to be loggin in
 router.post("/userUpdate",
-  sellerController.upload,
-  sellerController.resize,
-  catchErrors(authController.userUpdate));
+  catchErrors(photoController.updateAccountCloud)
+
+);
 
 
 //! Seller Routing
@@ -79,20 +84,18 @@ router.get(
   sellerController.createStore,
 
 );
+
 //?  POST to create the new store
 router.post("/createListing",
-  sellerController.upload,
-  catchErrors(sellerController.resize),
-  catchErrors(sellerController.createListing)
+  // sellerController.upload,
+  photoController.cloudUpload
+  // catchErrors(sellerController.createListing)
 );
 //? Get request to list the owners store
 router.get("/app/:id/edit",
   catchErrors(sellerController.editStore));
 //? POST request to update stote
-router.post("/app/:id/edit",
-  sellerController.upload,
-  catchErrors(sellerController.resize),
-  catchErrors(sellerController.updateStore));
+router.post("/app/:id/edit", photoController.updateCloudStore);
 
 //? get store by slug -- visit the store
 

@@ -47,8 +47,9 @@ exports.userUpdate = async (req, res) => {
     { $set: updates },
     { new: true, runValidators: true, context: "query" }
   );
+  res.json(user);
   req.flash("success", "You have updated you account, you will need to login in again");
-  res.redirect("/");
+  // res.redirect("/");
 };
 
 exports.forgotPassword = async (req, res) => {

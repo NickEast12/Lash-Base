@@ -18,7 +18,6 @@ const multerOptions = {
   }
 };
 
-
 exports.upload = multer(multerOptions).single("photo");
 exports.resize = async (req, res, next) => {
   //? check to see if there is no new file to resize
@@ -47,7 +46,7 @@ exports.createStore = (req, res) => {
 exports.createListing = async (req, res) => {
   req.body.author = req.user._id;
   const store = await (new Store(req.body)).save();
-  req.flash('success', `Successfully Created ${store.name}. Care to leave a review?`);
+  req.flash('success', `Successfully Created ${store.name}`);
   res.redirect(`/app/explore/${store.slug}`);
 
 };

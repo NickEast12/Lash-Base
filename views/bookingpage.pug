@@ -10,7 +10,7 @@ block content
         .app__header
             .header__wrapper
                 .header__icon__box.menu__button
-                    img(src=`/uploads/${user.photo || 'salon.jpg'}`, alt="")
+                    img(src=`https://res.cloudinary.com/dl774tcx9/image/upload/a_1/cover/${user.photo || '2020-04-06T13:16:15.638Z'}.jpg`)
                 .header__title__box 
                     a(href="/app/explore")
                         h1= title
@@ -54,7 +54,7 @@ block content
                     use(xlink:href="/images/icons/cancel.svg#cancelIcon")
                 .app__nav__header
                     .app__nav__header__img
-                        img(src=`/uploads/${user.photo ||'salon.jpg'}`, alt="")
+                        img(src=`https://res.cloudinary.com/dl774tcx9/image/upload/a_1/cover/${user.photo || '2020-04-06T13:16:15.638Z'}.jpg`)
                     .app__nav__header__title
                         h2 #{user.name} 🌴
                         p= user.email
