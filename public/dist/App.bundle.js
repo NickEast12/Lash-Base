@@ -2895,7 +2895,7 @@ function loadPlaces(map) {
 
         markers.forEach(function (marker) {
             return marker.addListener('click', function () {
-                var html = '\n                    <div class="popup">\n                        <a href="/app/explore/' + this.place.slug + '">\n                            <img src="/uploads/' + (this.place.photo || 'salon.jpeg') + '" alt="store image">\n                            <h4>' + this.place.name + '</h4> \n                            <p>' + this.place.location.address + '<p>\n                        </a>\n                    </div>\n                ';
+                var html = '\n                    <div class="popup">\n                        <a href="/app/explore/' + this.place.slug + '">\n                            <img src="https://res.cloudinary.com/dl774tcx9/image/upload/pictures/' + (this.place.photo || '2020-04-06T13:16:15.638Z') + '.jpg" alt="store image">\n\n                            <h4>' + this.place.name + '</h4> \n                            <p>' + this.place.location.address + '<p>\n                        </a>\n                    </div>\n                ';
                 infoWindow.setContent(html);
                 infoWindow.open(map, this);
 

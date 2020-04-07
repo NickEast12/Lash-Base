@@ -40,11 +40,26 @@ router.post("/login", authController.login);
 //? Log the user out
 router.get("/logout", authController.logout);
 //? APP - Getting around the app
-router.get("/app/home", catchErrors(userController.explore));
-router.get("/app/explore", catchErrors(userController.explore));
-router.get("/app/explore/page/:page", catchErrors(userController.explore));
-router.get("/app/favourites", catchErrors(userController.favourites));
-router.get("/app/bookings", catchErrors(userController.bookings));
+router.get("/app/home",
+  authController.isLoggedIn,
+  catchErrors(userController.explore)
+);
+router.get("/app/explore",
+  authController.isLoggedIn,
+  catchErrors(userController.explore)
+);
+router.get("/app/explore/page/:page",
+  authController.isLoggedIn,
+  catchErrors(userController.explore)
+);
+router.get("/app/favourites",
+  authController.isLoggedIn,
+  catchErrors(userController.favourites)
+);
+router.get("/app/bookings",
+  authController.isLoggedIn,
+  catchErrors(userController.bookings)
+);
 //? route to getting account need to be loggin in
 
 router.get('/back', mainController.back);

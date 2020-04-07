@@ -27,7 +27,7 @@ block content
                         td rating
                     each store, i in topStores
                         tr
-                            td: img( src=`/uploads/${store.photo || 'salon.jpg'}` alt=store.name)
+                            td: img( src=`https://res.cloudinary.com/dl774tcx9/image/upload/pictures/${store.photo || '2020-04-06T13:16:15.638Z'}.jpg` alt=store.name)
                             td  #{i + 1}
                             td: a(href=`/app/explore/${store.slug}`)=store.name
                             td #{store.reviews.length}

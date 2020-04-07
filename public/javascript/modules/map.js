@@ -198,7 +198,8 @@ function loadPlaces(map, lat = 51.3614, lng = 0.1940) {
                 const html = `
                     <div class="popup">
                         <a href="/app/explore/${this.place.slug}">
-                            <img src="/uploads/${this.place.photo || 'salon.jpeg'}" alt="store image">
+                            <img src="https://res.cloudinary.com/dl774tcx9/image/upload/pictures/${this.place.photo || '2020-04-06T13:16:15.638Z'}.jpg" alt="store image">
+
                             <h4>${this.place.name}</h4> 
                             <p>${this.place.location.address}<p>
                         </a>
