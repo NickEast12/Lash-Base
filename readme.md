@@ -1,4 +1,4 @@
-#LashBase
+###LashBase
 
 LashBase is the online application that allows users to find, book and review eyelash technicians in their area.
 
